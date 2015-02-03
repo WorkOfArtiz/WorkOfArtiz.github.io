@@ -1,0 +1,130 @@
+@font-face {
+    font-family: 'Fox and Cat';
+    src: url('../fonts/Fox%20&%20Cat.ttf');
+}
+
+@font-face {
+    font-family: 'Big John';
+    src: url('../fonts/BIG%20JOHN.otf');
+}
+
+a, a:visited {
+    color: #333;
+    text-decoration: none;
+    height: auto;
+}
+
+body{
+    margin:0;
+    font-family: 'Fox and Cat', sans-serif;
+     /*overflow: hidden;*/
+}
+
+hr {
+    padding: 0;
+    border: none;
+    border-top: medium solid #333;
+    color: #333;
+}
+
+h1{
+    font-family: 'Big John',sans-serif;
+}
+
+nav {
+    position: fixed;
+    z-index: 3;
+    top: 30px;
+    right:0;
+    color: #ccc;
+    text-align: center;
+}
+
+.activator{
+    padding: 1em 5em 1em 5em;
+    background: #111;
+}
+
+.hidden{
+    background: #eee;
+    width: inherit;
+
+    padding: 0;
+    opacity: 0;
+    visibility: hidden;
+    transition: padding 1s, opacity 1s,visibility 1s;
+}
+
+nav:hover .hidden{
+    visibility: visible;
+    opacity: 1;
+    padding:2em;
+}
+
+section{
+    overflow: auto;
+}
+
+.picture{
+    min-height:100vh;
+    background: no-repeat fixed center;
+    background-size: 100vw auto;
+}
+
+.text{
+    background: #333;
+}
+
+@media (max-width: 1000px){
+    .picture{
+        background-size: auto 100vh;
+    }
+}
+
+#Title{
+    background-image: url('../img/IMG_9417_.JPG');
+}
+
+#SecondPage{
+    background-image: url('../img/african-darter-58970.jpg');
+}
+
+.title-box{
+    position: relative;
+    margin-top: 8em;
+    margin-bottom:8em;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    padding: 2em;
+}
+
+.small_photo{
+    max-width: 200px;
+    max-height: 200px;
+}
+
+.medium_photo{
+    max-width: 400px;
+    max-height: 400px;
+}
+
+.darker{
+    background:rgba(0,0,0,0.7);
+    color: #ccc;
+}
+
+.darker hr {
+    border-top: medium solid #ccc;
+}
+
+.lighter{
+    background:rgba(255,255,255,0.9);
+    color: #111;
+}
+
+.centered {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
