@@ -1,13 +1,16 @@
+
+var out_header;
+
 // This example works with Charts.js
 // it isn't the final choice, just something to fiddle with
 function createCanvas(description,container) {
     var innerContainer = document.createElement("div");
     var canvas = document.createElement("canvas");
     var header = document.createElement("h2");
-    
+    out_header = header;
     innerContainer.className = "graphBox";
     
-    header.innerText = description;
+    header.innerHTML = description;
     header.style.width = Math.floor(container.clientWidth) + 'px';
     
     innerContainer.appendChild(header);
