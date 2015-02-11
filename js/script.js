@@ -1,19 +1,28 @@
 // This example works with Charts.js
 // it isn't the final choice, just something to fiddle with
 function createCanvas(description,container) {
-    var canvas1 = document.createElement("canvas");
+    var innerContainer = document.createElement("div");
+    var canvas = document.createElement("canvas");
     var header = document.createElement("h2");
+    
+    innerContainer.className = "graphBox";
+    
     header.innerText = description;
-    container.appendChild(header);
-    container.appendChild(canvas1);
+    header.style.width = Math.floor(container.clientWidth) + 'px';
+    
+    innerContainer.appendChild(header);
+    innerContainer.appendChild(canvas);
+    container.appendChild(innerContainer);
+
+    var padding = Math.floor(container.clientHeight / 10);
     
     // bugfix because chart.js requires height attributes
-    canvas1.height = canvas1.clientHeight;
-    canvas1.width = canvas1.clientWidth;
+    canvas.height =  Math.floor(container.clientHeight - header.offsetHeight - padding * 2);
+    canvas.width  =  Math.floor(container.clientWidth  - padding * 2);
+    canvas.style.padding = padding + 'px';
     
     // attach a context
-    var ctx = canvas1.getContext("2d");
-    return ctx;
+    return canvas.getContext("2d");
 }
 
 window.onload = function() {
@@ -82,22 +91,26 @@ window.onload = function() {
     
  
 
-    var ctx = createCanvas("Bar Chart chart", container);
+    var ctx = createCanvas("Bar chart", container);
     var lineChart = new Chart(ctx).Bar(complexData , {bezierCurve: true});
 
     var ctx = createCanvas("Radar chart", container);
     var lineChart = new Chart(ctx).Radar(complexData , {bezierCurve: true});
-    
+
     var ctx = createCanvas("Line chart", container);
     var lineChart = new Chart(ctx).Line( complexData, {bezierCurve: true});
 
     ctx = createCanvas("Polar chart", container);
     new Chart(ctx).PolarArea(roundData,{segmentShowStroke : false, legendTemplate:""});
-    
+
     ctx = createCanvas("Pie chart", container);
     new Chart(ctx).Pie(roundData,{segmentShowStroke : false, legendTemplate:""});
 
     ctx = createCanvas("Doughnut chart", container);
     new Chart(ctx).Doughnut(roundData,{segmentShowStroke : false, legendTemplate:""});
-
+    
+    $('#exampleID').slick({
+        autoplay: true,
+        autoplaySpeed: 2000}
+    );
 };

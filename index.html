@@ -3,14 +3,29 @@
 <head lang="en">
     <meta charset="UTF-8">
     <title></title>
-    <script src="js/Chart.js"></script>
-    <script src="js/script.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+    <!-- slider stuff --> 
+    <link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="slick/slick-theme.css">
+    <script type="text/javascript" src="slick/slick.min.js"></script>
+    
+    <!-- Chart.js lib -->
+    <script type="text/javascript" src="js/Chart.js"></script>
+    
+    <!-- script to make it all work -->
+    <script type="text/javascript" src="js/script.js"></script>
+    
+    <!-- some css because it still needs some limits, also it shouldn't look like shit -->
     <style>
         html, body { margin:0; text-align: center; height:100%; width:100%; background: #ccc;}
         h1,h2{ font-family: Helvetica,sans-serif; color: #333; }
-        #exampleID { width:80%; height:30%; margin-left:auto; margin-right: auto;  }
-        h2 { display: inline-block; background: #111; color: #ccc; margin-bottom: 0; padding:1em 5em;}
-        canvas{ display:inline; background:#333; width: inherit; height: 40vh; padding:3em; }
+        #exampleID { width:80%; height: 60vh; margin-left:auto; margin-right: auto;  } 
+        
+        h2 { display: inline-block; background: #111; color: #ccc; margin: 0; padding:1em 0;}
+        .graphBox { background:#333; }
+        canvas{ display:inline; background:#333; padding:40px; margin:0}
     </style>
 </head>
 <body>
