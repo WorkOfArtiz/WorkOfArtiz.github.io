@@ -1,46 +1,1451 @@
 <!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title>test</title>
-    <link rel="stylesheet" href="css/styles.css"/>
-</head>
-<body>
-    <nav tabindex="0" class="menu">
-        <div class="activator">Menu</div>
-        <div class="hidden">
-            <a href="#Title">Title Page</a>
-            <br />
-            <hr />
-            <a href="#SecondPage">Content Page</a>
-        </div>
-    </nav>
 
-    <section class="picture" id="Title">
-        <div class="title-box darker">
-            <h1 class="pagetitle">
-                Welcome to my personal github page.
-            </h1>
-            <hr />
-            In the coming months I will extend this to have links to all my current and previous projects
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="generator" content="pandoc"/>
+    <meta name="author" content="Spell checked, readable version by Arthur of Human Computer Interaction’s Docs"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <title>HCI dashboard</title>
+
+    <!-- jQuery -->
+    <script src="res/jquery.min.js"></script>
+    <script src="res/jquery-ui.min.js" type="text/javascript"></script>
+
+    <!-- Bootstrap -->
+    <!--<link id="default" rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">-->
+    <link rel="stylesheet" href="res/bootstrap.min.css">
+    <script src="res/bootstrap.min.js"></script>
+
+    <!-- Calendar plugin -->
+    <script src='res/moment.min.js'></script>
+    <script src="res/fullcalendar.js"></script>
+    <link href="res/fullcalendar.min.css" rel="stylesheet"/>
+
+    <style type="text/css">
+        .main-container {
+            max-width: 1300px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        pre:not([class]) {
+            background-color: white;
+        }
+
+        code {
+            white-space: pre;
+        }
+
+        html, body {
+            height: 100%;
+        }
+
+        .fc-event {
+            /* adjust hue */
+            background-color: #eb6864;
+            border: solid #eb6864 4px;
+            border-radius: 0;
+            text-align: center;
+            color: #fff;
+        }
+
+        .fc-unthemed .fc-today {
+            background-color: #eee;
+        }
+    </style>
+    <script type="text/javascript">
+        if (window.hljs && document.readyState && document.readyState === "complete") {
+            window.setTimeout(function () {
+                hljs.initHighlighting();
+            }, 0);
+        }
+    </script>
+</head>
+
+<body>
+
+<nav class="navbar navbar-default">
+    <div class="container">
+        <div class="navbar-header">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="true">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">HCI dashboard</a>
         </div>
-    </section>
-    <section class="text">
-        <div class="title-box darker">
-            <h1>Creating valuable Solutions</h1>
-            <hr />
-            <p> As we speak I'm working on creating valuable solutions. Projects like:</p>
+        <div id="navigation" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li class="active"><a data-toggle="pill" href="#deadlines">Deadlines</a></li>
+            <li><a data-toggle="pill" href="#lab-sessions">Lab sessions</a></li>
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assignments<span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                    <li><a data-toggle="pill" href="#hci-assignments-general">Assignments General</a></li>
+                    <li><a data-toggle="pill" href="#assignment-1-hci-requirements-gathering-and-conceptual-design">Assignment1</a></li>
+                    <li><a data-toggle="pill" href="#assignment-2-hci-prototyping">Assignment 2</a></li>
+                    <li><a data-toggle="pill" href="#assignment-3-hci-evaluation">Assignment 3</a></li>
+                </ul>
+            </li>
+            <li><a data-toggle="pill" href="#notes">Notes</a></li>
+            <li><a href="http://bookzz.org/book/1183037/c06bc1" target="_blank">Download book</a></li>
+        </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+<div id="header">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Warning</h3>
+        </div>
+        <div class="panel-body">
+            The content is from the VU University's Human Computer Interaction Course 2015<br>
+            I do not claim to have any rights on the content.<br>
+            Please don't copy or redistribute the materials.
+        </div>
+    </div>
+</div>
+
+<!--
+<ul class="nav nav-pills">
+    <li class="active"><a data-toggle="pill" href="#deadlines">Deadlines</a></li>
+    <li><a data-toggle="pill" href="#lab-sessions">Lab sessions</a></li>
+    <li><a data-toggle="pill" href="#hci-assignments-general">Assignments General</a></li>
+    <li class="dropdown">
+        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assignments<span class="caret"></span></a>
+        <ul class="dropdown-menu">
+            <li><a data-toggle="pill" href="#assignment-1-hci-requirements-gathering-and-conceptual-design">Assignment1</a></li>
+            <li><a data-toggle="pill" href="#assignment-2-hci-prototyping">Assignment 2</a></li>
+            <li><a data-toggle="pill" href="#assignment-3-hci-evaluation">Assignment 3</a></li>
+        </ul>
+    </li>
+    <li><a href="http://bookzz.org/book/1183037/c06bc1" target="_blank">Download book</a></li>
+</ul>
+-->
+
+<div class="tab-content">
+<div id="deadlines" class="tab-pane fade in active section level2">
+    <h2>Deadlines</h2>
+    <div class="panel-group" id="dead-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#dead-panel" data-target="#dead-panel-1">
+                    <a class="accordion-toggle">Calendar view</a>
+                </h3>
+            </div>
+            <div id="dead-panel-1" class="panel-collapse collapse in">
+                <div class="panel-body container-fluid">
+                    <div id='calendar'></div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#dead-panel" data-target="#dead-panel-2">
+                    <a class="accordion-toggle">List view</a>
+                </h3>
+            </div>
+            <div id="dead-panel-2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <table>
+                        <thead>
+                        <tr class="header">
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Event</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr class="odd">
+                            <td>Mon 1 June</td>
+                            <td>18:00</td>
+                            <td>Submission deadline Lab exercises 1</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Thu 4 June</td>
+                            <td>18:00</td>
+                            <td>Submission deadline Lab exercises 2</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Fri 5 June</td>
+                            <td>23:59</td>
+                            <td>Submission deadline Assignment 1</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Mon 8 June</td>
+                            <td>18:00</td>
+                            <td>Submission deadline Lab exercises 3</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Thu 11 June</td>
+                            <td>18:00</td>
+                            <td>Submission deadline Lab exercises 4</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Fri 12 June</td>
+                            <td>23:59</td>
+                            <td>Submission deadline Assignment 2</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Mon 15 June</td>
+                            <td>18:00</td>
+                            <td>Submission deadline Lab exercises 5</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Thu 18 June</td>
+                            <td>13:30-15:15</td>
+                            <td><strong>Group Presentations Assignment 3</strong></td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Thu 18 June</td>
+                            <td>10:00 AM</td>
+                            <td>Presentation Slides</td>
+                        </tr>
+                        <tr class="even">
+                            <td>Mon 22 June</td>
+                            <td>23:59</td>
+                            <td>Submission deadline Assignment 3</td>
+                        </tr>
+                        <tr class="odd">
+                            <td>Fri 26 June</td>
+                            <td>12:00-14:45</td>
+                            <td><strong>Exam</strong></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="lab-sessions" class="tab-pane fade in section level2">
+    <h2>Lab sessions</h2>
+
+    <div class="panel-group" id="lab-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-1">
+                    <a class="accordion-toggle">Lab session 1</a>
+                </h3>
+            </div>
+            <div id="lab-panel-1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h2>Lab exercises 1</h2>
+
+                    <ol>
+                        <li>
+                            Study the <a href="http://www.useit.com/alertbox/9605.html">"Top Ten Mistakes in Web
+                            Design"</a> by Jacob Nielsen. Compare with a newer list from 2014 <a
+                                href="http://www.entrepreneur.com/article/234129"> The 10 Most Deadly Mistakes in
+                            Website Design</a>. What are differences? What are new things?
+                            Write a short (4-5 line) summary of the article and rank the mistakes in the order of their
+                            importance according to you (rationale per mistake in one sentence).
+                        </li>
+                        <li>
+                            Study the <a href="http://www.useit.com/alertbox/bad-design.html">"Four Bad Designs"</a>, by
+                            Jacob Nielsen. Compare them with a newer list from 2015 <a
+                                href="https://www.elegantthemes.com/blog/resources/bad-web-design-a-look-at-the-most-hilariously-terrible-websites-from-around-the-web">Bad
+                            Web Design</a>. What are differences? What are new things?
+                            Write a short (4-5 line) summary of the article and rank the bad designs in the order of
+                            their importance according to you (rationale per mistake in one sentence).
+                        </li>
+                        <li>
+                            Study the <a href="http://mashable.com/2011/09/23/ui-design-examples/">"Ten Good
+                            Designs"</a>, by Kelli Shaver. Find examples of good designs from 2014 or 2015. Again,
+                            compare and indicate differences.
+                            Write a short (5-6 line) summary of the 3 main points, which typically rank a user interfce
+                            designs higher according to this article. Present your own ranking of these sites and
+                            explain why do you disagree with the author (a sentence per design).
+                        </li>
+                        <li>
+                            Think about an approach you are taking for some daily activity, like cooking meal for
+                            friends. Think of where will you involve users (your friends) and where would you work
+                            iteratively, which steps will you repeat and what tasks will you perform. Describe shortly
+                            an example. Consult here the discussion on page 20 in the course book.
+                        </li>
+                        <li>
+                            Read and study the text of HCI Assignments - General.
+                            Choose one of the two domains.
+                            Explore the provided relevant links to this domain to get inspirations.
+                            Write down your first list of ideas for an application, target group, etc.
+                            Motivate why are you choosing for this domain and this application, e.g. why is it an
+                            interesting and necessessary application, why is the target group interesting to focus on.
+                            Identify the users to collect input from. Each team member is responsible for 1 user.
+                            Select four out of the six tasks to be covered in the Assignment 1.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-2">
+                    <a class="accordion-toggle">Lab session 2</a>
+                </h3>
+            </div>
+            <div id="lab-panel-2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h2>Lab exercises 2</h2>
+
+                    <ol>
+                        <li>
+                            Find two examples of the use of a "semantic differential" scale in Web
+                            surveys. Comment briefly on whether these examples demonstrate an appropriate use of the
+                            scale. Background reading: see Ch. 2 of the course book.
+                        </li>
+                        <li>
+                            Describe two "Personas" (see Ch. 3 of the course book) for one of your favorite Web
+                            applications. Use this experience to compare briefly the Personas technique with other user
+                            profiling techniques.
+                        </li>
+                        <li>
+                            Read Sec. 1.3 in Ch. 4 of the course book. Describe briefly your own mental model of your
+                            popular search engine, both for text and images (e.g. regular Google search and Google image
+                            search). Think of another user group (e.g. elderly people, different education, different
+                            culture, ...) and consider briefly how the mental model of members of this group might
+                            differ from yours.
+                        </li>
+                        <li>
+                            Read Sec. 5.2 of the course book ("Four psychological principles"). Give for each principle
+                            an example based on your own experince and explain briefly.
+                        </li>
+                        <li>
+                            Study the article <a href="http://news.bbc.co.uk/2/hi/technology/6653119.stm">Web 2.0
+                            neglecting good design</a>. Give your opinion (including short rationale) in 5-15 lines.
+                        </li>
+                        <li>
+                            Study the articles <a href="http://arstechnica.com/journals/apple.ars/2007/1/19/6688">"iPhone
+                            interface analysis from an actual usability expert. Gasp!"</a>
+                            and
+                            <a href="http://www.asktog.com/columns/070iPhoneFirstLook.html">"The iPhone User Experience:
+                                A First Look"</a>.
+                            Is iPhone as revolutionary as claimed? Explain why.
+                            Is the multi-touch interface truly breakthrough as claimed? Explain why. Study the article
+                            <a href="https://gigaom.com/2013/09/23/the-biggest-hiccups-in-ios-7s-new-ui/">The biggest
+                                hiccups in iOS7s new UI</a>. Compare with the issues mentioned in the previous articles
+                            in 2007. How would you evaluate the iPhone interface and the multi-touch interface in terms
+                            of the bad/good design and interface mistakes you have learned in the first two exercises of
+                            Lab exercises 1?
+                        </li>
+                        <li>
+                            Work on Assignment 1. Plan your interviews to collect input and feedback from 4 potential
+                            users from your target group. Perform the tasks of Assignment 1.
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-3">
+                    <a class="accordion-toggle">Lab session 3</a>
+                </h3>
+            </div>
+            <div id="lab-panel-3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h2>No content made available</h2>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-4">
+                    <a class="accordion-toggle">Lab session 4</a>
+                </h3>
+            </div>
+            <div id="lab-panel-4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h2>Some content made available</h2>
+
+                    <p>The Questions aren't uploaded yet but the resources are</p>
+
+                    <a class="btn btn-primary" href="Lab-4-SUSquestionnaire.pdf" target="_blank">Resource 1</a>
+                    <a class="btn btn-primary" href="Lab-4-SUSquestionnaire2.pdf" target="_blank">Resource 2</a>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-5">
+                    <a class="accordion-toggle">Lab session 5</a>
+                </h3>
+            </div>
+            <div id="lab-panel-5" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <h2>No content made available</h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Note</h3>
+        </div>
+        <div class="panel-body">
+            A lot of the lab session sources aren't online at the time
+        </div>
+    </div>
+
+</div>
+<div id="hci-assignments-general" class="tab-pane fade in section level2">
+<h2>HCI Assignments General</h2>
+
+<p>During the three assignments of this course you will:</p>
+<ul>
+    <li>analyse the domain, collect requirements from users and propose a conceptual design</li>
+    <li>create several prototypes of this design</li>
+    <li>evaluate the different prototypes</li>
+</ul>
+<p>The subject domain for the assignments is predefined. There are two domains to choose from: (I) HCI development
+    for a Touch screen second screen (could be Tablet or a Smartphone) used in combination with a TV and (II) HCI
+    development for a Smartwatch screen (e.g. Samsung Gear, iWatch) used in combination with a smart phone. For
+    further details see the domain description below.</p>
+
+<div class="panel-group" id="ass0-panel">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#ass0-panel" data-target="#ass0-panel-1">
+            <a class="accordion-toggle"> Domain I: Touchscreen (Mobile or Tablet) as Second Screen for watching TV</a>
+        </h3>
+    </div>
+    <div id="ass0-panel-1" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>There is current trend for people to use the TV and the Web simultaneously using various devices, such as
+                phones, laptops and tablets. These “second screen” user experiences have some drawbacks, for example,
+                people
+                are having to focus on more than one screen at a time, their attention divided between the two. Also the
+                ergonomics can be awkward; with laptops balanced on knees, looking down on tablets or smart phones, no
+                haptic feedback from touch devices and thumbs typing on tiny keyboards. Moreover, when you’re following
+                an
+                online conversation about a programme you want to be able to comment quickly, so the act of typing can’t
+                be
+                too difficult or distracting. In addition to making it easier to read and input text, second screens
+                have
+                several other user experience advantages over a single integrated Web/TV screen. For example, they:</p>
             <ul>
-                <li>static malware analysis</li>
+                <li>Don’t take the user away from main viewing experience</li>
+                <li>Don’t clutter the TV screen with graphics/widgets</li>
+                <li>Allow for the potential for personalised interfaces: in most cases, it’s my social network but our
+                    TV,
+                    so displaying personal social network comments on the TV screen, as well as being a usability
+                    nightmare,
+                    is also a privacy problem.
+                </li>
             </ul>
+            <p>Recently broadcasters and Internet start-ups have started to design Social TV apps specifically for
+                second
+                screen and remote controls TV experiences. Several apps and sites (such as Netflix, Hulu, Philo, Miso,
+                and
+                GetGlue) have repurposed the check-in concept popularised by Foursquare, Facebook and many other social
+                media aps and adapted it for TV for a shared television watching experience. Other services are
+                concentrating on integration with Twitter and Facebook. However, it is not clear at the moment what
+                these
+                second screen applications give the user that existing tools (such as using Twitter or Facebook on a
+                laptop
+                or phone) do not.</p>
+
+            <p>You are a designer team and you have to design an interface and interaction on a touchscreen used as a
+                second
+                screen before, after or while watching TV (for examples see below). The goal of the second screen is to
+                provide a personal space for the TV viewers to interact with the TV while watching, e.g. (1) participate
+                in
+                online conversations about a TV programme, so that viewers in different places can share and discuss
+                their
+                thoughts, (2) play along: e.g. by real-time voting and predictions (“Which contestant will win?”),
+                answering
+                trivia questions etc. (3) navigate to content: e.g. browsing through an archive collection and selecting
+                a
+                programme to watch, perhaps based on social recommendations, (4) access supplementary information about
+                a
+                programme (synchronised to the broadcast). Additionally, the second screen tablet could be used to also
+                control the TV: i.e. using the second screen as a remote control to actually change what’s happening on
+                the
+                TV screen.</p>
+
+            <p>In order to inspire yourself and gather background information about what features and functionality such
+                a
+                second screen table should have, you can explore features in existing applications as second screen (see
+                examples below).</p>
+
+            <div id="general-guidelines-for-all-three-assignments-domain-i" class="section level4">
+                <h4>General guidelines for all three assignments (Domain I):</h4>
+
+                <p><strong>Target group:</strong> Choose a target age group of your users, preferably excluding your own
+                    age
+                    group (i.e. 19-25). If you choose for your own age group you have to show explicitly that you didn’t
+                    use
+                    your group or other course groups as test users. Example choices: high school (12-18), elderly
+                    (65+).
+                </p>
+
+                <p><strong>Users:</strong> Collect input and feedback from at least 4 potential users from your target
+                    group. Each team member is responsible for at least 1 user. The more users you address the better.
+                </p>
+
+                <p><strong>Tasks:</strong> Select four out of the six tasks below to cover in the assignments:</p>
+                <ul>
+                    <li>Create personalised playlists of programs to watch, to record, etc.</li>
+                    <li>Browse, search and navigate to content, e.g. browse through a TV program collection and select a
+                        programme to watch; consider here browsing through general lists, recommended lists, favourites,
+                        overall search, specific searches, etc.
+                    </li>
+                    <li>Tag, rate, share, recommend (to a friend, or group of friends); consider here sharing on the
+                        social
+                        web, e.g. FB, Google+, Twitter, etc, or also sharing inside your application with friends that
+                        are
+                        also member of the same app
+                    </li>
+                    <li>Favourite a TV program or a channel, or a series of programs</li>
+                    <li>Post comments in a discussion about a TV program</li>
+                    <li>Access supplementary information about a programme prior to and while watching; consider here
+                        also
+                        supplementary information on the Web, e.g. IMDB, Wikipedia, etc.
+                    </li>
+                </ul>
+                <p>In addition, include <strong>at least two</strong> other second screen-specific features of your
+                    choice.
+                    You should derive these tasks from your target users. These features should be innovative, creative
+                    and
+                    specifically targeting a current gap (related to your user group) or the domain of Second Screens;
+                    Support the choice for those two features with literature study and from the user study of your
+                    target
+                    group, that there is a real need for such features, and that they ultimately will improve the user
+                    experience of your users.</p>
+
+                <p>Some issues to explore in your requirements gathering, design and evaluation:</p>
+                <ul>
+                    <li><strong>Attention/Distraction:</strong> How much can the second screen experience interrupt the
+                        process of watching TV? In what circumstances does the second screen start to impair the
+                        experience,
+                        rather than enhance people’s enjoyment of it?
+                    </li>
+                    <li><strong>Struggle of cognitive resources:</strong> How do users deal with the competition for
+                        attention between the two screens and having to flip between them? Does it depend on their state
+                        of
+                        mind e.g. when they are tired and want to be passively entertained compared to when they are
+                        feeling
+                        alert and want to actively engage? Does the type of programme matter?
+                    </li>
+                    <li><strong>Level of detail of presented information:</strong> How can users avoid such information
+                        overload? What sort of filters should be available besides the ability to filter tweets by
+                        friends
+                        for example?
+                    </li>
+                    <li><strong>Synchronisation:</strong> How clear is the relationship between the main (TV) screen
+                        content
+                        and the second screen content?
+                    </li>
+                    <li><strong>Level of control:</strong> How much do users want to be able to customise their “second
+                        screen” - e.g. set the desired level of interruption and information density, or make
+                        adjustments
+                        for accessibility requirements such as poor sight or hearing difficulties?
+                    </li>
+                    <li><strong>Information overload:</strong> How do you deal with the fact that there are too many
+                        programs to choose from? How do you help your users finding easily and quickly what they are
+                        searching for without being overwhelmed with options and content?
+                    </li>
+                    <li><strong>Context of use:</strong> How do you deal with the fact that people use this app in
+                        different
+                        context, e.g. when they are alone, when they are together with friends, with family, when they
+                        are
+                        in the train, in the plane, etc.? How does different context influence the usability and the
+                        demand
+                        for different support features?
+                    </li>
+                </ul>
+                <p>The list of initial requirements (including the non-functional HCI requirements) from Assignment 1
+                    will
+                    have to be extended/adapted in each follow-up assignment.</p>
+            </div>
         </div>
-    </section>
-    <section class="picture" id="SecondPage">
-        <div class="title-box lighter">
-            <H1 class="pagetitle">Project Planetwars</H1>
-            <hr />
-            <p>I've created a page, together with Radu Jica and Cheng-lyam Lam</p>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#ass0-panel" data-target="#ass0-panel-2">
+            <a class="accordion-toggle">Domain II: Smartwatches as an Add on Screen to Listen Music</a>
+        </h3>
+    </div>
+    <div id="ass0-panel-2" class="panel-collapse collapse">
+        <div class="panel-body">
+            <p>Wearable computers (i.e. wearables) are typically developed to support users in physical environment.
+                They
+                can provide a constant interaction between the computer and user by sensing the environment (i.e. user
+                context), thus often there is no need to turn the device on or off or to start a particular application.
+                They also support multitasking, by allowing you to continue what you were doing while using the device
+                (which is seamlessly augmented into the users’ context). Until recently, most of those devices were
+                primarily developed and used either in research settings, or in sci-fi movies (e.g. prosthetics as an
+                extension of the user’s hands, arms, head or event mind). Their intrusiveness in terms of size, shape
+                and
+                need for continuous power and connectivity, typically made them unusable in general context. Recently,
+                with
+                the introduction of Google Glass and Samsung Galaxy Gear, Apple Watch and the whole range of smart
+                watches
+                available on the market, such devices become more popular in common use. However, with the increase in
+                their
+                popularity, more and more issues arise in the context of their use. For example, they could:</p>
+            <ul>
+                <li>Distract the user from the current activity</li>
+                <li>Obstruct the view of the user</li>
+                <li>Be too slow to react to the users’ request</li>
+                <li>Consume too much power - exhausting batteries fast</li>
+                <li>Be too big and too small at the same time</li>
+                <li>Be of a security risk</li>
+            </ul>
+            <p>Recently different companies started developing mainstream wearables, e.g. activity trackers wristbands
+                Fibit, Nike+ Fuelband and Jawbone UP. Smartwatches, extending the interaction with smart phones seem to
+                get
+                more and more popular, e.g. Samsun Gear, Moto 360, Apple Watch, and many more still in design stages.
+                However, it is not clear what the best mode of interaction is with such devices, and how to measure
+                usability.</p>
+
+            <p>You are a designer team and you have to design an interface and interaction on a Smart Watch (connected
+                to a
+                smart phone) to manipulate audio and music related apps. The goal of this device is to provide an easy
+                access to your music and other audio apps, e.g. (1) navigate to audio content: e.g. browsing through a
+                music
+                and podcasts collection and selecting an item to play across different music consuming apps, (2) to
+                change
+                songs, (3) adjust volume, (4) favourite or share a song or add it to a playlist, (5) access
+                supplementary
+                information about a song or podcast, such as lyrics, album, etc., (6) buy songs, (7) link to their
+                YouTube
+                videos, (8) see their popularity on Twitter, etc.</p>
+
+            <p>In order to inspire yourself and gather background information about what features and functionality such
+                a
+                Smartwatch wearable touch screen, you can explore features in existing Smart Phones and various audio
+                and
+                music apps (see examples below).</p>
+
+            <div id="general-guidelines-for-all-three-assignments-domain-ii" class="section level4">
+                <h4>General guidelines for all three assignments (Domain II):</h4>
+
+                <p><strong>Target group:</strong> Choose a target age group of your users, preferably excluding your own
+                    age
+                    group (i.e. 19-25). If you choose for your own age group you have to show explicitly that you didn’t
+                    use
+                    your group or other course groups as test users. Example choices: high school (12-18), elderly
+                    (65+).
+                </p>
+
+                <p><strong>Users:</strong> Collect input and feedback from at least 4 potential users from your target
+                    group. Each team member is responsible for at least 1 user. The more users you address the better.
+                </p>
+
+                <p><strong>Tasks:</strong> Select four out of the six tasks below to cover in the assignments:</p>
+                <ul>
+                    <li>Select a song to play, then pause/rewind/fast forward</li>
+                    <li>Change song while listening to another song; navigate to next/previous song through playlists,
+                        albums, genres, artists, recommendations
+                    </li>
+                    <li>Search and browse for a song to play, by artist, album, genre, name</li>
+                    <li>Show additional information about the song, e.g. lyrics, or how many friends like it, comments
+                        by
+                        others, etc., links to buy the song, links to YouTube videos, links to TV shows that use this
+                        song,
+                        links to the album of the song, and the artist of the song; links to other related songs /
+                        similar
+                        songs
+                    </li>
+                    <li>Share a song with friends, on Social Web, within your own app, across the apps on your phone,
+                        e.g. WhatsApp, Hangouts, email, etc.
+                    </li>
+                    <li>Favourite a song, e.g. “like” a song and also add it to a playlist</li>
+                </ul>
+                <p>In addition, include at least two other interesting music-specific features of your choice. You
+                    should
+                    derive these tasks from your target users. These features should be innovative, creative and
+                    specifically targeting a current gap (related to your user group) or the domain of Smart Watches,
+                    Mobile
+                    Apps and Mobile phones; Support the choice for those two features with literature study and from the
+                    user study of your target group, that there is a real need for such features, and that they
+                    ultimately
+                    will improve the user experience of your users.</p>
+
+                <p>Some issues to explore in your requirements gathering, design and evaluation:</p>
+                <ul>
+                    <li><strong>Attention/Distraction:</strong> How much could the Smartwatch interrupt the process of
+                        listening? In what circumstances does the Smartwatch start to impair the experience, rather than
+                        enhance it?
+                    </li>
+                    <li><strong>Level of detail:</strong> of presented information: How do you cope with a small
+                        Smartwatch
+                        screen when there is a lot of information to present? How to choose what information to present?
+                        How
+                        can users avoid information overload? What sort of filters should be available besides the
+                        ability
+                        to filter tweets by friends for example?
+                    </li>
+                    <li><strong>Synchronisation:</strong> How clear is the relationship between the smart phone content
+                        and
+                        the Smartwatch content?
+                    </li>
+                    <li><strong>Level of control:</strong> How much do users want to be able to customise their
+                        “Smartwatch”
+                        - e.g. set the desired level of interruption and information density, or make adjustments for
+                        accessibility requirements such as poor sight or hearing difficulties?
+                    </li>
+                    <li><strong>Information overload:</strong> How do you deal with the fact that there are too many
+                        songs
+                        to choose from? How do you help your users finding easily and quickly what they are searching
+                        for
+                        without being overwhelmed with options and content?
+                    </li>
+                    <li><strong>Context of use:</strong> How do you deal with the fact that people use this app in
+                        different
+                        context, e.g. when they are on the road in a train, or when they are biking, or when they are at
+                        a
+                        party, or at home? How does different context influence the usability and the demand for
+                        different
+                        support features?
+                    </li>
+                </ul>
+                <p>The list of initial requirements (including the non-functional HCI requirements) from Assignment 1
+                    will
+                    have to be extended/adapted in each follow-up assignment.</p>
+            </div>
         </div>
-    </section>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h4 class="panel-title" data-toggle="collapse" data-parent="#ass0-panel" data-target="#ass0-panel-3">
+            <a class="accordion-toggle">Links</a>
+        </h4>
+    </div>
+    <div id="ass0-panel-3" class="panel-collapse collapse">
+        <div class="panel-body">
+            <div id="online-tv-guides-second-screens" class="section level4">
+                <h4>Online TV guides &amp; Second Screens</h4>
+
+                <p><a href="http://www.tvgids.nl/">TV Guide (nl)</a><br> <a href="http://tvtv.de/">TVTV (de)</a><br> <a
+                        href="http://www.nu.nl/tvgids/">Nu.nl guide (nl)</a><br> <a
+                        href="http://ifanzy.nl">iFancy</a><br>
+                    <a href="http://www.tvgids.tv/">Tv Guide tv</a><br> <a href="http://www.npo.nl/gids">NPO</a><br> <a
+                            href="http://www.imdb.com/tv/">IMDB</a><br> <a href="https://see.it/tunerfish">See
+                        IT</a><br> <a
+                            href="http://get.viggle.com/">Viggle</a><br> <a
+                            href="http://wywy.com/products/">Wywy</a><br> <a
+                            href="http://disneysecondscreen.go.com/">Disney</a><br> <a
+                            href="https://philo.com/">Philo</a><br> <a
+                            href="http://mashable.com/category/second-screen/">Mashable</a><br>
+                    <a href="http://www.2ndscreensociety.com/">2ndScreenSociety</a><br></p>
+            </div>
+            <div id="relevant-studies" class="section level4">
+                <h4>Relevant Studies</h4>
+
+                <p><a href="http://www.ericsson.com/res/docs/2013/consumerlab/tv-and-media-consumerlab2013.pdf">Ericsson
+                    study: Tablet PC-TV connection interests consumers</a><br> <a
+                        href="http://www.emarketer.com/Article/Second-Screening-During-TV-TimeIts-Not-What-You-Think/1011256">Second
+                    Screening During TV Time-It’s Not What You Think</a><br> <a
+                        href="http://www.theguardian.com/technology/appsblog/2012/oct/29/social-tv-second-screen-research">Social
+                    TV and second-screen viewing: the stats in 2012</a><br> <a
+                        href="http://www.marketingcharts.com/television/are-young-people-watching-less-tv-24817/">Are
+                    Young
+                    People Watching Less TV? (Updated - Q4 2014 Data)</a><br> <a
+                        href="http://www.androidcentral.com/watching-television-second-screen-apps">Watching television
+                    with
+                    Second Screen apps</a><br> <a href="http://itvt.com/blog/how-overcome-barriers-personalised-tv">Barriers
+                    to Personalised TV</a><br> <a
+                        href="http://www.bbc.co.uk/rd/blog/2011/02/orchestrated-media-beyond-se-1">BBC R&amp;D blog:
+                    Orchestrated Media - Beyond second and third screen</a><br> <a
+                        href="http://www.bbc.co.uk/blogs/legacy/researchanddevelopment/2011/04/the-autumnwatch-companion---de.shtml">BBC
+                    R&amp;D: The Autumnwatch TV Companion experiment</a><br> <a
+                        href="http://www.nomensa.com/blog/2010/internet-tv-ux-a-potential-casualty-in-the-battle-for-the-living-room/">Internet
+                    TV: UX a potential casualty in the battle for the living room?</a><br> <a
+                        href="https://gigaom.com/2010/12/15/mobile-remote-apps/">The Second Screen Will Soon Control the
+                    Living Room</a><br> <a
+                        href="http://www.adweek.com/lostremote/ipad-quickly-becoming-tvs-second-screen/14104">iPad
+                    quickly
+                    becoming TV’s second screen</a></p>
+            </div>
+            <div id="wearables-audio-mobile-apps" class="section level4">
+                <h4>Wearables &amp; Audio Mobile Apps</h4>
+
+                <p><a href="https://www.wearable-technologies.com/2014/04/hearables-the-new-wearables/">Hearables - the
+                    new
+                    Wearables</a><br> <a
+                        href="https://medium.com/wearable-tech/why-wearables-will-replace-smartphones-c297db834ede">Why
+                    Wearables Will Replace Smartphones</a><br> <a href="http://www.last.fm/">Last.FM</a><br> <a
+                        href="https://www.spotify.com/nl/">Spotify</a><br> <a
+                        href="http://www.whatmobile.net/smartwatches-2/">Smartwatches</a><br> <a
+                        href="http://money.cnn.com/2014/03/19/technology/mobile/wearable-devices/">Smartphones are
+                    fading.
+                    Wearables are next</a><br> <a
+                        href="http://www.wareable.com/running/the-best-fitness-watches-with-music-playback">Run to the
+                    beat:
+                    Best running watches and smartwatches with music playback</a><br> <a
+                        href="https://play.google.com/store/apps/details?id=com.sonyericsson.extras.liveware.extension.music">Music
+                    Player Smart Extension</a><br> <a href="http://en.wikipedia.org/wiki/Liveware">Liveware</a><br> <a
+                        href="https://play.google.com/store/apps/details?id=com.sonyericsson.trackid">TrackID - Music
+                    Recognition</a><br> <a href="https://play.google.com/store/music">Google Play</a><br> <a
+                        href="https://play.google.com/store/apps/details?id=com.disrapptive.smart.music">Music Player
+                    for
+                    Smartwatch 2</a><br> <a
+                        href="https://play.google.com/store/apps/details?id=cz.zalsky.android.watchremotecontrol">SmartMote
+                    for Smartwatch 2</a><br> <a
+                        href="http://thenextdigit.com/2039/sony-launches-smarwatch-2-xperia-ultra-xperia/">Sony Xperia
+                    Z</a>
+                </p>
+                <hr/>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div id="assignment-1-hci-requirements-gathering-and-conceptual-design" class="tab-pane fade section level2">
+<h2>Assignment 1: HCI Requirements Gathering and Conceptual Design</h2>
+
+<div id="purpose" class="section level3">
+    <h3>Purpose</h3>
+
+    <p>The purpose of this assignment is to get a thorough understanding of the process of as well as the
+        techniques
+        for HCI requirement gathering and conceptual design.</p>
+</div>
+<div id="reading-material" class="section level3">
+    <h3>Reading material</h3>
+
+    <p>This assignment covers Ch. 2-8 of the course book. References in this assignment description (e.g. to
+        tables,
+        figures, sections) refer to this book.</p>
+</div>
+
+<div class="panel-group" id="ass1-panel">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title" data-toggle="collapse" data-parent="#ass1-panel" data-target="#ass1-panel-1">
+                <a class="accordion-toggle">Target results of the assignment</a>
+            </h4>
+        </div>
+        <div id="ass1-panel-1" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>The result of the assignment should be a report covering the first two phases of HCI development:
+                    requirements gathering and conceptual design. The report should contain the following
+                    elements:</p>
+
+                <p><strong>Domain characterization:</strong></p>
+
+                <p>Textual description of your domain. Here you specify the device/platform and other aspects of the
+                    domain.
+                    Prepare this by analysing similar systems and related interfaces (use as a basis the links given
+                    in the
+                    overall assignment information). Present references to sites or systems you found yourself
+                    during this
+                    domain analysis phase. Indicate, the questions from your interviews or survey with target users
+                    have
+                    also
+                    contributed to the domain description. Expected size: half page (plus the references to material
+                    you
+                    found,
+                    studied and read).</p>
+
+                <p><strong>User characteristics:</strong></p>
+
+                <p>Describe user characteristics using the template of Table 3.2. Indicate which questions in your
+                    interviews or
+                    surveys have contributed to creating this target user profile. Show the initial user profile and
+                    how it
+                    changed into the detailed user profile after the interview/survey or focus group with the users.
+                    Also
+                    include one typical “Persona” description that you have envisioned for your users.</p>
+
+                <p><strong>Task characteristics:</strong></p>
+
+                <p>Select two tasks and describe their task characteristics (example: see Table 4.2).</p>
+
+                <p><strong>Task sequences:</strong></p>
+
+                <p>Consider whether the two selected tasks require particular sequences, e.g. because one task
+                    requires
+                    output
+                    from another task. Document alternative task sequences with a template such as shown in Table
+                    4.3.</p>
+
+                <p><strong>Task analysis:</strong></p>
+
+                <p>For the two selected tasks construct:</p>
+                <ul>
+                    <li>a task scenario (example: see Box 4.3)</li>
+                    <li>a concrete use case (example: see Fig. 4.3)</li>
+                    <li>an essential use case (example: see Fig. 4.4)</li>
+                </ul>
+                <p><strong>Task objects:</strong></p>
+
+                <p>Identify the main task objects in the use cases and specify these objects using a format such as
+                    used in
+                    Tables 8.1 and 8.2.</p>
+
+                <p><strong>Content diagrams:</strong></p>
+
+                <p>Define one overall content diagram (example: see Fig. 8.19) and one content diagram per use case
+                    (examples:
+                    see Figs. 8.17 and 8.18).</p>
+
+                <p><strong>Usability metrics:</strong></p>
+
+                <p>Define your specific usability goals using the template provided in Table 6.3. Do not copy the
+                    content of
+                    the
+                    table, but define the goals specific for your application and scenario. Ex. changing channels
+                    should
+                    happen
+                    in .5 sec; changing volume should be with max 1 click, etc.</p>
+
+                <p><strong>Non-functional HCI requirements:</strong></p>
+
+                <p>You can limit the description here to requirements w.r.t accessibility and privacy. This is the
+                    initial
+                    list
+                    of requirements, which will have to be extended/adapted in each follow-up assignment.</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title" data-toggle="collapse" data-parent="#ass1-panel" data-target="#ass1-panel-2">
+                <a class="accordion-toggle">Data collection</a>
+            </h4>
+        </div>
+        <div id="ass1-panel-2" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p>To be able to get the results listed in the previous section, you will have to do data collection
+                    from
+                    prospective users. You are expected to collect data from at least 4 users (see general
+                    information about
+                    the
+                    assignments). In the report you should document two data collection techniques with all 4 (or
+                    more)
+                    users:</p>
+
+                <p><strong>Structured interview:</strong></p>
+
+                <p>List the questions to be asked during the interview, including a one line rationale for each
+                    question.
+                    For
+                    background information see Ch. 3.</p>
+
+                <p><strong>Questionnaire:</strong></p>
+
+                <p>Construct a questionnaire with 8-10 questions. Explain briefly the rationale of the question and
+                    the
+                    format
+                    used for recording the answer. For background information see Ch. 3</p>
+
+                <p>Conduct structured interviews with all 4 of your target users. Collect data from an online
+                    questionnaire
+                    with
+                    all 4 users and possibly with a few more volunteers. To have representativeness of the data
+                    collection,
+                    it
+                    would be useful to find additional people in your target group to send the questionnaire to, as
+                    4 users
+                    is a
+                    small number for a questionnaire.</p>
+
+                <p>The data-collection process should be documented in an appendix of the report. This appendix
+                    should
+                    contain a
+                    data-collection diary (activity list) and the information about the setup of the interviews and
+                    the
+                    questionnaire . In the body of the report include the main conclusions that you were able to
+                    draw based
+                    on
+                    this data collected. In the appendix you can list all the conclusions. Report on things that
+                    went wrong,
+                    or
+                    you could have done better next time.</p>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title" data-toggle="collapse" data-parent="#assX-panel" data-target="#ass1-panel-3">
+                <a class="accordion-toggle">Tips</a>
+            </h4>
+        </div>
+        <div id="ass1-panel-3" class="panel-collapse collapse">
+            <div class="panel-body">
+                <p><strong>Techniques to use:</strong></p>
+
+                <p>Consult the course book for techniques to construct the various results. In particular for the
+                    task
+                    analysis,
+                    the task objects and the content diagrams, first read the relevant chapters (Chs 4. and 8)
+                    carefully to
+                    understand what are the activities you should perform.</p>
+
+                <p><strong>Use of UML:</strong></p>
+
+                <p>You are free to use UML diagrams as an add-on to, or in place of, techniques described in the
+                    book. This
+                    holds in particular for representing (1) use cases through UML use-case diagrams, (2) task
+                    sequences
+                    through
+                    UML activity diagrams, and (3) task objects through UML class diagrams.</p>
+
+                <p><strong>Interviews:</strong></p>
+
+                <p>You should use the interviews, amongst other things, to get information on potential additional
+                    tasks
+                    that
+                    you like to define (must be at least two).</p>
+
+                <p>For online surveys you can use tools such as Google Forms or SurveyMonkey, or Facebook or any
+                    other tools
+                    that you are already familiar with.</p>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<div id="assignment-2-hci-prototyping" class="tab-pane fade section level2">
+    <h2>Assignment 2: HCI Prototyping</h2>
+
+    <div id="purpose-1" class="section level3">
+        <h3>Purpose</h3>
+
+        <p>The purpose of this assignment is to get a thorough understanding of the process of as well as techniques
+            for
+            HCI prototyping, with an emphasis on the early phases of development. The purpose is
+            <strong>not</strong> to
+            train UI programming.</p>
+
+        <p>In this assignment your team will go through two cycles of development of a mock-up prototype. In each
+            cycle
+            you will do a basic evaluation through a cognitive walkthrough respectively a heuristic evaluation.</p>
+    </div>
+
+    <div id="reading-material-1" class="section level3">
+        <h3>Reading material</h3>
+
+        <p>For this assignment we assume you are familiar with Chs. 1-19 and 26 of the course book. This assignment
+            focuses in particular on techniques described in Ch. 6 (Sec. 6) and Ch. 26. The techniques you need for
+            the
+            assignment are covered in detail in the the slides of the lecture on Prototyping; study these slides
+            carefully before starting the assignment.</p>
+    </div>
+
+    <div class="panel-group" id="ass2-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" data-parent="#ass2-panel" data-target="#ass2-panel-1">
+                    <a class="accordion-toggle">Target results of the assignment</a>
+                </h4>
+            </div>
+            <div id="ass2-panel-1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>The result of the assignment should be an extension of the report produced during Assignment 1,
+                        It should
+                        contain the following new elements:</p>
+
+                    <p><strong>Paper-based prototype:</strong></p>
+
+                    <p>Construct a low-fidelity prototype of your UI design developed in Assignment 1. The prototype
+                        should be
+                        paper-based and use sketches and/or storyboards as main technique(s). The techniques you need
+                        are
+                        discussed
+                        in the lecture on prototyping (consult the slides). The results should be a number of photos or
+                        scans of
+                        the
+                        prototype, together with explanation of all the design decisions. You can also use a tool like
+                        <a
+                                href="http://www.balsamiq.com/">Balsamiq</a> or any of the other tools for low-fidelity
+                        prototyping
+                        in the Appendix list at the end of this assignment. The content diagrams developed in Assignment
+                        1 are
+                        the
+                        main starting point for the prototype. .</p>
+
+                    <p><strong>Cognitive walkthrough:</strong></p>
+
+                    <p>Perform a cognitive walkthrough of the prototype for each of the tasks you identified. For each
+                        task ask
+                        one
+                        group member should act as evaluator. Ask the evaluator to “think aloud”; the other group
+                        members should
+                        record the remarks made. Analyse the results and summarize the positive and negative feedback
+                        you have
+                        collected during those sessions. Indicate what changes/updates you need to do as a result of the
+                        cognitive
+                        walkthrough. Add the data collected (e.g. notes made during think-aloud) as an appendix to the
+                        report.</p>
+
+                    <p><strong>Software-based mock-up prototype:</strong></p>
+
+                    <p>Construct now a revised version of your mock-up, taking the results of the cognitive walkthrough
+                        into
+                        account. Use for this mock-up a tool such as Powerpoint, HTML or some other visual editing tool
+                        you are
+                        familiar with. Check out the list of tools included in the Appendix at the end of this
+                        assignment.
+                        Include
+                        screenshots and URLs in the report. Give explanations of the prototype parts and the design
+                        choices/rational
+                        you followed in order to make them.</p>
+
+                    <p><strong>Heuristic evaluation:</strong></p>
+
+                    <p>Conduct a heuristic evaluation of the second prototype. Use the Nielsen heuristics of Table 26.1
+                        as the
+                        baseline for the evaluation (see also the example evaluation in Box 26.1). Ask one person from
+                        one of
+                        the
+                        other teams to act as evaluator/inspector. Include a summary of the results in table-form (see
+                        Table
+                        26.3)
+                        in the report. Discuss implications for the UI design. Include the data collection form (Table
+                        26.2) as
+                        an
+                        appendix to the report.</p>
+
+                    <p><strong>Change history:</strong></p>
+
+                    <p>During prototyping you are likely find out that parts of your requirements description and/or
+                        conceptual
+                        design were missing/insufficient/wrong. This is not a bug but a feature! Adjust where needed the
+                        requirements and design (as documented in Assignment 1) and add a change history to the report.
+                        In this
+                        change history you keep track of updates in a tabular form: date, person, change made and reason
+                        for the
+                        change.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" data-parent="#ass2-panel" data-target="#ass2-panel-2">
+                    <a class="accordion-toggle">Tips</a>
+                </h4>
+            </div>
+            <div id="ass2-panel-2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>The list of initial requirements in assignment 1 (including the non-functional HCI requirements)
+                        will
+                        have to
+                        be extended/adapted in this assignment as well as in assignment 3.</p>
+
+                    <p><strong>Recording data collection:</strong></p>
+
+                    <p>Consider using audio or video recording during the cognitive walkthroughs and/or heuristic
+                        evaluation.
+                        Don’t
+                        depend solely on your memory! At the minimum make extensive notes during the data-collection
+                        process.</p>
+
+                    <p><strong>Cooperation with other teams:</strong></p>
+
+                    <p>For heuristic evaluation you will need to cooperate with one other team. Make sure you agree
+                        early with
+                        them
+                        how to make this work.</p>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" data-parent="#ass2-panel" data-target="#ass2-panel-3">
+                    <a class="accordion-toggle">Appendix: List of prototyping tools</a>
+                </h4>
+            </div>
+            <div id="ass2-panel-3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <ul>
+                        <li><a href="http://mashable.com/2012/06/07/mockup-tools/">Mock-up Tools</a></li>
+                        <li><a href="http://creately.com/">Creately</a>: Specialized tool, free w/ watermark &amp; other
+                            limitations
+                            or monthly usage fee. Creates diagrams, wireframes, web and desktop UI mock-ups, has
+                            collaboration
+                            features and contextual toolbars. Online Adobe Flash-based application.
+                        </li>
+                        <li><a href="http://lucidchart.com/">Lucidchart</a>: Rapid prototyping with true interactive
+                            experiences.
+                            Creates diagrams, wireframes, web and desktop UI mock-ups. Has real time collaboration
+                            features and
+                            is
+                            Web-standards based.
+                        </li>
+                        <li><a href="http://www.lumzy.com">Lumzy</a>: Collaborative, runs in browser (flash), decent
+                            selection
+                            of
+                            controls, skin as sketchy, win, or mac, free.
+                        </li>
+                        <li><a href="http://gomockingbird.com">Mockingbird</a>: Web-based, Beta</li>
+                        <li><a href="http://www.justinmind.com">Justinmind Prototyper</a>: Create high-fidelity
+                            application
+                            prototypes. Generates fully functional HTML prototypes and customized MSWord specifications.
+                        </li>
+                        <li><a href="https://balsamiq.com/">Balsamiq Mockups</a>: a rapid wireframing tool.</li>
+                        <li><a href="https://www.draw.io/">Draw.io</a></li>
+                    </ul>
+                    <p>More tools can be found at: <a href="http://c2.com/cgi/wiki?GuiPrototypingTools">C2’s ProtoTyping
+                        Tools</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div id="assignment-3-hci-evaluation" class="tab-pane fade section level2">
+    <h2>Assignment 3: HCI Evaluation</h2>
+
+    <div id="purpose-2" class="section level3">
+        <h3>Purpose</h3>
+
+        <p>The goal of this assignment is to prepare the final evaluation of your final prototype (you will not execute
+            this evaluation). You will define an experimental design (including evaluation goals, metrics related to
+            your requirements and use context from assignment 1) to assess the usability of your prototype (resulted
+            from assignment 2).</p>
+
+        <p>The result of this assignment constitutes an extension and update of your assignment 1-2 report. In addition,
+            you will prepare as part of this assignment a presentation of the end result of the assignments.</p>
+    </div>
+    <div id="reading-material-2" class="section level3">
+        <h3>Reading material</h3>
+
+        <p>Chapters 20-25 &amp; 27 of the coursebook, plus additional material from the lectures 5 and 6.</p>
+    </div>
+
+    <div class="panel-group" id="ass3-panel">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" data-parent="#ass3-panel" data-target="#ass3-panel-1">
+                    <a class="accordion-toggle">Target results of the assignment</a>
+                </h4>
+            </div>
+            <div id="ass3-panel-1" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>You are asked to prepare an experimental design for usability evaluation of your prototype. You
+                        should focus
+                        the evaluation on <strong>two</strong> tasks (the ones that you identified yourself in
+                        Assignment 1 and
+                        realized in the prototypes of Assignment 2).</p>
+
+                    <p>For each task you should define the following:</p>
+                    <ul>
+                        <li>Hypothesis: what do you want to test?</li>
+                        <li>Variables involved: dependent, independent, controlled.</li>
+                        <li>Constraints that need to be considered.</li>
+                        <li>Type of data you want to collect to confirm/reject your hypotheses</li>
+                    </ul>
+                    <p>Based on these hypotheses, make an overall experimental plan to test both hypotheses:</p>
+                    <ul>
+                        <li>Selection of methods for data collection</li>
+                        <li>Planning of data collection sessions, including tools that need to be used, number of users,
+                            and
+                            physical setting.
+                        </li>
+                        <li>Select summarization techniques of results (e.g. mean for time spent, mean for number of
+                            steps).
+                        </li>
+                        <li>Qualitative conclusions are you interested in, e.g. “We want to see how satisfied the users
+                            are overall
+                            with the new interface.”
+                        </li>
+                        <li>Quantitative conclusions are you interested in, e.g. “We will check how much the users
+                            deviated from the
+                            desired (mean) for number of steps in using our system.”
+                        </li>
+                        <li>Strategy for confirming/rejecting your hypotheses based on this summarized data, e.g. if the
+                            users make
+                            on the average 2 steps to fulfil the task, than our interface is ….’.
+                        </li>
+                        <li>Make sure you include a rational for each of those steps</li>
+                    </ul>
+                    <p>The final result should be an extension of the report of Assignment 2. If your analysis gives
+                        rise to changes
+                        in earlier parts of the report, then make a note of this in the Change history.</p>
+
+                    <div id="tips-2" class="section level4">
+                        <h4>Tips</h4>
+                        <ul>
+                            <li>The list of initial requirements in assignment 1 (including the non-functional HCI
+                                requirements) and
+                                the additions from assignment 2 will have to be extended/adapted in this assignment as
+                                well
+                            </li>
+                            <li>In principle, you could have a separate data-collection plan for all hypotheses. In
+                                practice, it is
+                                more effective to combine data collection, e.g. to use a survey to ask questions
+                                concerning multiple
+                                hypotheses. For this reason, the overall experimental plan is for all hypotheses. You
+                                should
+                                indicate which parts of the plan are targeted at which hypothesis, where relevant.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title" data-toggle="collapse" data-parent="#ass3-panel" data-target="#ass3-panel-2">
+                    <a class="accordion-toggle">Presentation of the assignment results</a>
+                </h4>
+            </div>
+            <div id="ass3-panel-2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <p>In addition to the experimental design you should also prepare a presentation about the combined
+                        result of
+                        your assignments. The rooms for the presentations can be found in the schedule (at the time of
+                        the
+                        last lab
+                        session).</p>
+
+                    <p>You are asked to prepare a presentation of max 7 slides, according to the following
+                        structure:</p>
+                    <ul>
+                        <li>title slide: names, group number, selected domain, name of your application</li>
+                        <li>user profile (also specific one)</li>
+                        <li>requirements &amp; tasks (focus on the 2 selected)</li>
+                        <li>UI design (content diagrams, etc.)</li>
+                        <li>the prototypes (low &amp; high fidelity)</li>
+                        <li>(results of) cognitive walkthrough &amp; heuristic evaluation</li>
+                        <li>experimental design under development in Assignment 3</li>
+                    </ul>
+                    <p>The presentation slot per group is 10 minutes (7 mins presentation + 3 mins for questions). Make
+                        sure
+                        you
+                        stay strictly within the presentation time. Only the quality of the slides will be graded (but
+                        use
+                        the
+                        presentation itself as a training of your presentation expertise!). You will be stopped exactly
+                        after 7 mins
+                        of presentation, which might not allow you to present everything, and thus points can be
+                        deducted.
+                        This
+                        grade will form part of the overall grade for Assignment 3. Submit your slides (as PDF) via
+                        BlackBoard by
+                        Wed 17 June 17:00.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="notes" class="tab-pane fade section level2">
+    <h2>Notes</h2>
+
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h3 class="panel-title">Contributors</h3>
+        </div>
+        <div class="panel-body">
+            <p>Arthur de Fluiter, I created the site<br>Check out my <a href="http://if4u.nl">personal site</a></p>
+            <p>The team from the Human Computer Interaction Course who made the content</p>
+            <p>Bob van den Berg, for the nice link to the book</p>
+            <p><a href="http://jQuery.com">jQuery</a>, the JS framework</p>
+            <p><a href="http://getbootstrap.com">Bootstrap</a>, the JS/CSS framework</p>
+            <p><a href="http://bootswatch.com/">Bootwatch</a>, the bootstrap theme</p>
+            <p><a href="http://fullcalendar.io">Full Calendar</a>, the framework for creating calendars</p>
+        </div>
+    </div>
+    <div class="panel panel-info">
+        <div class="panel-heading">
+            <h4 class="panel-title">Updates</h4>
+        </div>
+        <div class="panel-body">
+        <ul>
+            <li>Added theme</li>
+            <li>Added notes tab</li>
+            <li>Updated navigation, removed pills</li>
+            <li>Added Calendar style</li>
+            <li>Code Clean up</li>
+            <li>Added Book link (thanks Bob)</li>
+            <li>Added Lab sessions</li>
+            <li>Launch</li>
+        </ul>
+        </div>
+    </div>
+</div>
+</div>
+
+</div>
+
+<script>
+    // add bootstrap table styles to pandoc tables
+    $(document).ready(function () {
+        $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+    });
+
+    $(function () {
+        var date = new Date();
+        var d = date.getDate();
+        var m = date.getMonth();
+        var y = date.getFullYear();
+
+        $('#calendar').fullCalendar({
+            header: {
+                left: 'today',
+                center: 'title',
+                right: 'agendaDay,agendaWeek,month'
+            },
+            editable: true,
+            eventLimit: true,
+            events: [
+                {
+                    title: 'Lab1 deadline',
+                    start: '2015-06-01T18:00:00'
+                },
+                {
+                    title: 'Lab2 deadline',
+                    start: '2015-06-04T18:00:00'
+                },
+                {
+                    title: 'Lab3 deadline',
+                    start: '2015-06-08T18:00:00'
+                },
+                {
+                    title: 'Lab4 deadline',
+                    start: '2015-06-11T18:00:00'
+                },
+                {
+                    title: 'Lab5 deadline',
+                    start: '2015-06-15T18:00:00'
+                },
+                {
+                    title: 'Ass1 deadline',
+                    start: '2015-06-05T23:00:00',
+                    end: '2015-06-05T23:59:59'
+                },
+                {
+                    title: 'Ass2 deadline',
+                    start: '2015-06-12T23:00:00',
+                    end: '2015-06-12T23:59:59'
+                },
+                {
+                    title: 'Ass3 deadline',
+                    start: '2015-06-22T23:00:00',
+                    end: '2015-06-22T23:59:59'
+                },
+                {
+                    title: 'Ass3 Presentations',
+                    start: '2015-06-18T13:30:00',
+                    end: '2015-06-18T15:15:00'
+                },
+                {
+                    title: 'Presentation hand in',
+                    start: '2015-06-18T10:00:00'
+                },
+                {
+                    title: 'Exam',
+                    start: '2015-06-26T12:00:00',
+                    end: '2015-06-26T14:45:00'
+                }
+            ]
+        });
+    });
+</script>
 </body>
 </html>
