@@ -97,24 +97,47 @@
 </nav>
 
 <div class="container">
-<div id="header">
+<div class="panel-group" id="header">
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <h3 class="panel-title">Warning</h3>
+            <h3 class="panel-title" data-toggle="collapse" data-parent="#header" data-target="#header-warning">
+                <a class="accordion-toggle">Warning</a>
+            </h3>
         </div>
+        <div id="header-warning" class="panel-collapse collapse in">
         <div class="panel-body">
             <p>The content is from the VU University's Human Computer Interaction Course 2015<br>
-            I do not claim to have any rights on the content.<br>
-            Please don't copy or redistribute the materials.
+                I do not claim to have any rights on the content.<br>
+                Please don't copy or redistribute the materials.
             </p>
             <hr>
             <p>
-                This course can cause severe <strong>annoyances</strong>, a <strong>lack of joy</strong> and even <strong>depression</strong>, preceed with caution <br />
-                In case of Emergency:<br />
-                <iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/150936679&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false#t=14s"></iframe>
+                This course can cause severe <strong>annoyances</strong>, a <strong>lack of joy</strong> and even
+                <strong>depression</strong>, preceed with caution <br/>
+                In case of Emergency:<br/>
+                <iframe width="100%" height="100" scrolling="no" frameborder="no"
+                        src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/150936679&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false#t=14s"></iframe>
             </p>
         </div>
+            </div>
     </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title" data-toggle="collapse" data-parent="#header" data-target="#headermusic">
+                <a class="accordion-toggle">Relaxing background music</a>
+            </h3>
+        </div>
+        <div id="headermusic" class="panel-collapse collapse">
+        <div class="panel-body">
+            <iframe width="100%" height="100" scrolling="no" frameborder="no"
+                    src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/98646096&amp;auto_play=false&amp;hide_related=true&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false"></iframe>
+        </div>
+            </div>
+    </div>
+</div>
+
+<div id="music">
+
 </div>
 
 <div class="tab-content">
@@ -487,29 +510,59 @@
         <div class="panel-body">
             <h2>Lab exercises 5</h2>
 
-            <p><strong>Note:</strong> These exercises form a preparation for the work on evaluation (today's lecture &amp; assignment 3). You might want to use some of the answers to update your assignment. </p>
+            <p><strong>Note:</strong> These exercises form a preparation for the work on evaluation (today's lecture
+                &amp; assignment 3). You might want to use some of the answers to update your assignment. </p>
 
             <ol>
-                <li> Review the usability requirements you specified for assignment 1 based on the text on pp. 440-441. Did you include quantitative specifications of usability metrics? Discuss briefly wether the metric performance levels described in Box 21.1 would be of use in the context of your assignment. </li>
-                <li> Consider Figs. 21.1-3. Discuss briefly the relative importance of the "5 Es" for your   target application. </li>
-                <li> Box 23.1 describes five usability attributes for UI rating in questionnaires: learnability, helpfulness, control, efficiency, affect. Select one questionnaire from Table 23.2 (here is the <a href="http://www.measuringusability.com/sus.php">System Usability Scale </a>) and tag at least 10 questions with one or more of these attributes (a tag should indicate that the question can give you insight into this usability attribute).  </li>
-                <li> Read Box 24.1. Would this be an appropriate consent form for a final evaluation of your final prototype? Adapt the form so that it is suitable for your evaluation (indicate what you would like to delete/add and why).
+                <li> Review the usability requirements you specified for assignment 1 based on the text on pp. 440-441.
+                    Did you include quantitative specifications of usability metrics? Discuss briefly wether the metric
+                    performance levels described in Box 21.1 would be of use in the context of your assignment.
                 </li>
-                <li>A <em>coding scheme</em> (p. 515) is often used to analyse qualitative data, such as transcripts from interviews. In retrospect, sketch a possible coding scheme for the interviews you did for assignment 1. </li>
-                <li> Read the <a href="http://www.usercentric.com/news/2011/01/26/eye-tracking-bing-vs-google-second-look">report</a> on the interface of Google vs. Bing with respect to time looked at ads. Describe the experimental methodology that was used (e.g. observational, quasi-experimental, experimental)  and motivate your answer. Can you think of improvements for this study? </li>
+                <li> Consider Figs. 21.1-3. Discuss briefly the relative importance of the "5 Es" for your target
+                    application.
+                </li>
+                <li> Box 23.1 describes five usability attributes for UI rating in questionnaires: learnability,
+                    helpfulness, control, efficiency, affect. Select one questionnaire from Table 23.2 (here is the <a
+                            href="http://www.measuringusability.com/sus.php">System Usability Scale </a>) and tag at
+                    least 10 questions with one or more of these attributes (a tag should indicate that the question can
+                    give you insight into this usability attribute).
+                </li>
+                <li> Read Box 24.1. Would this be an appropriate consent form for a final evaluation of your final
+                    prototype? Adapt the form so that it is suitable for your evaluation (indicate what you would like
+                    to delete/add and why).
+                </li>
+                <li>A <em>coding scheme</em> (p. 515) is often used to analyse qualitative data, such as transcripts
+                    from interviews. In retrospect, sketch a possible coding scheme for the interviews you did for
+                    assignment 1.
+                </li>
+                <li> Read the <a
+                        href="http://www.usercentric.com/news/2011/01/26/eye-tracking-bing-vs-google-second-look">report</a>
+                    on the interface of Google vs. Bing with respect to time looked at ads. Describe the experimental
+                    methodology that was used (e.g. observational, quasi-experimental, experimental) and motivate your
+                    answer. Can you think of improvements for this study?
+                </li>
                 <li> Which are the variables (independent, dependent) in the
-                    Google-Bing study? </li>
-                <li> Consider the <a href="http://www.gv.com/lib/how-to-find-great-participants-for-your-user-study">guidelines</a> desribed by Margolis for recruiting participants for a user
-                    study. Summarize the main points of his article. </li>
+                    Google-Bing study?
+                </li>
+                <li> Consider the <a href="http://www.gv.com/lib/how-to-find-great-participants-for-your-user-study">guidelines</a>
+                    desribed by Margolis for recruiting participants for a user
+                    study. Summarize the main points of his article.
+                </li>
                 <li> Give examples of an apropriate use of <strong>randomization and
                     control</strong> in your final evaluation in assignment 3. Explain
                     why would you use each of them and how does it relate to your
-                    hypothesis answering.</li>
-                <li>What is the most appropriate <strong>sample(s)</strong> (e.g. characteristics of the users in the samples, size, number of samples, etc.) for the final (summative) evaluation of your prototype? Show and explain why they would be a <strong>representative sample(s)</strong> for the target population of your prototype? </li>
+                    hypothesis answering.
+                </li>
+                <li>What is the most appropriate <strong>sample(s)</strong> (e.g. characteristics of the users in the
+                    samples, size, number of samples, etc.) for the final (summative) evaluation of your prototype? Show
+                    and explain why they would be a <strong>representative sample(s)</strong> for the target population
+                    of your prototype?
+                </li>
                 <li>What do you need to do in order to ensure internal and external
                     validity of an evaluation of your prototype? Explain shortly your
                     rational and choices and how do they relate to the goals of your
-                    prototype. </li>
+                    prototype.
+                </li>
             </ol>
         </div>
     </div>
@@ -524,7 +577,7 @@
         <div class="panel-body">
             <h2>Final presentation of your Assignment Work</h2>
 
-            Suggested length of your slides	is 8 slides	with as suggested content:
+            Suggested length of your slides is 8 slides with as suggested content:
 
             <ul>
                 <li>your names, group number, selected domain</li>
@@ -1545,7 +1598,8 @@
 
     The book can be found:<a href="http://bookzz.org/book/1183037/c06bc1" target="_blank">here</a>
 
-    <br /><br />
+    <br/><br/>
+
     <div class="panel panel-default">
         <div class="panel-heading">
             <h2 class="panel-title">Slides download (all compressed)</h2>
@@ -1553,14 +1607,20 @@
         <div class="panel-body">
             <div class="btn-group-justified"><a href="res/Slides1-Requirements.pdf">Slides 1 - Requirements</a></div>
             <br>
+
             <div class="btn-group-justified"><a href="res/Slides2-Concept.pdf">Slides 2 - Conceptual Design</a></div>
             <br>
+
             <div class="btn-group-justified"><a href="res/Slides3-HCI_design.pdf">Slides 3 - HCI design</a></div>
             <br>
-            <div class="btn-group-justified"><a href="res/Slides4-HCI_prototyping.pdf">Slides 4 - HCI Prototyping</a></div>
+
+            <div class="btn-group-justified"><a href="res/Slides4-HCI_prototyping.pdf">Slides 4 - HCI Prototyping</a>
+            </div>
             <br>
+
             <div class="btn-group-justified"><a href="res/Slides5-Usability.pdf">Slides 5 - Usability</a></div>
             <br>
+
             <div class="btn-group-justified"><a href="res/Slides6-Exams.pdf">Slides 6 - Exam preperation</a></div>
         </div>
     </div>
