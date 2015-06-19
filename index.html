@@ -5,10 +5,9 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="generator" content="pandoc"/>
-    <meta name="author" content="Spell checked, readable version by Arthur of Human Computer Interaction’s Docs"/>
+    <meta name="author" content="Arthur de Fluiter"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="shortcut icon" type="image/x-icon" href="goat.ico" />
+    <link rel="icon" type="image/x-icon" href="goat.ico">
 
     <title>HCI dashboard</title>
 
@@ -27,12 +26,6 @@
     <link href="res/fullcalendar.min.css" rel="stylesheet"/>
 
     <style type="text/css">
-        .main-container {
-            max-width: 1300px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         pre:not([class]) {
             background-color: white;
         }
@@ -72,7 +65,8 @@
 <nav class="navbar navbar-default">
     <div class="container">
         <div class="navbar-header">
-            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="true">
+            <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navigation"
+                    aria-expanded="true">
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -80,21 +74,24 @@
             <a class="navbar-brand" href="#">HCI dashboard</a>
         </div>
         <div id="navigation" class="navbar-collapse collapse">
-        <ul class="nav navbar-nav">
-            <li class="active"><a data-toggle="pill" href="#deadlines">Deadlines</a></li>
-            <li><a data-toggle="pill" href="#lab-sessions">Lab sessions</a></li>
-            <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assignments<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a data-toggle="pill" href="#hci-assignments-general">Assignments General</a></li>
-                    <li><a data-toggle="pill" href="#assignment-1-hci-requirements-gathering-and-conceptual-design">Assignment1</a></li>
-                    <li><a data-toggle="pill" href="#assignment-2-hci-prototyping">Assignment 2</a></li>
-                    <li><a data-toggle="pill" href="#assignment-3-hci-evaluation">Assignment 3</a></li>
-                </ul>
-            </li>
-            <li><a data-toggle="pill" href="#notes">Notes</a></li>
-            <li><a href="http://bookzz.org/book/1183037/c06bc1" target="_blank">Download book</a></li>
-        </ul>
+            <ul class="nav navbar-nav">
+                <li class="active"><a data-toggle="pill" href="#deadlines">Deadlines</a></li>
+                <li><a data-toggle="pill" href="#lab-sessions">Lab sessions</a></li>
+                <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#">Assignments<span
+                            class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a data-toggle="pill" href="#hci-assignments-general">Assignments General</a></li>
+                        <li><a data-toggle="pill" href="#assignment-1-hci-requirements-gathering-and-conceptual-design">Assignment1</a>
+                        </li>
+                        <li><a data-toggle="pill" href="#assignment-2-hci-prototyping">Assignment 2</a></li>
+                        <li><a data-toggle="pill" href="#assignment-3-hci-evaluation">Assignment 3</a></li>
+                    </ul>
+                </li>
+                <li><a data-toggle="pill" href="#notes">Notes</a></li>
+                <li><a data-toggle="pill" href="#downloads">Downloads</a></li>
+                <!--<li><a href="http://bookzz.org/book/1183037/c06bc1" target="_blank">Download book</a></li>-->
+            </ul>
         </div>
     </div>
 </nav>
@@ -106,10 +103,28 @@
             <h3 class="panel-title">Warning</h3>
         </div>
         <div class="panel-body">
-            The content is from the VU University's Human Computer Interaction Course 2015<br>
+            <p>The content is from the VU University's Human Computer Interaction Course 2015<br>
             I do not claim to have any rights on the content.<br>
             Please don't copy or redistribute the materials.
+            </p>
+            <hr>
+            <p>
+                This course can cause severe <strong>annoyances</strong>, a <strong>lack of joy</strong> and even <strong>depression</strong>, preceed with caution <br />
+                In case of Emergency:<br />
+                <iframe width="100%" height="100" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/150936679&amp;auto_play=false&amp;hide_related=false&amp;show_comments=false&amp;show_user=false&amp;show_reposts=false&amp;visual=false#t=14s"></iframe>
+            </p>
         </div>
+    </div>
+</div>
+
+<div id="depression">
+    <div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Warning</h3>
+    </div>
+    <div class="panel-body">
+
+    </div>
     </div>
 </div>
 
@@ -133,6 +148,7 @@
 <div class="tab-content">
 <div id="deadlines" class="tab-pane fade in active section level2">
     <h2>Deadlines</h2>
+
     <div class="panel-group" id="dead-panel">
         <div class="panel panel-default">
             <div class="panel-heading">
@@ -226,173 +242,357 @@
     </div>
 </div>
 <div id="lab-sessions" class="tab-pane fade in section level2">
-    <h2>Lab sessions</h2>
+<h2>Lab sessions</h2>
 
-    <div class="panel-group" id="lab-panel">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-1">
-                    <a class="accordion-toggle">Lab session 1</a>
-                </h3>
-            </div>
-            <div id="lab-panel-1" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h2>Lab exercises 1</h2>
-
-                    <ol>
-                        <li>
-                            Study the <a href="http://www.useit.com/alertbox/9605.html">"Top Ten Mistakes in Web
-                            Design"</a> by Jacob Nielsen. Compare with a newer list from 2014 <a
-                                href="http://www.entrepreneur.com/article/234129"> The 10 Most Deadly Mistakes in
-                            Website Design</a>. What are differences? What are new things?
-                            Write a short (4-5 line) summary of the article and rank the mistakes in the order of their
-                            importance according to you (rationale per mistake in one sentence).
-                        </li>
-                        <li>
-                            Study the <a href="http://www.useit.com/alertbox/bad-design.html">"Four Bad Designs"</a>, by
-                            Jacob Nielsen. Compare them with a newer list from 2015 <a
-                                href="https://www.elegantthemes.com/blog/resources/bad-web-design-a-look-at-the-most-hilariously-terrible-websites-from-around-the-web">Bad
-                            Web Design</a>. What are differences? What are new things?
-                            Write a short (4-5 line) summary of the article and rank the bad designs in the order of
-                            their importance according to you (rationale per mistake in one sentence).
-                        </li>
-                        <li>
-                            Study the <a href="http://mashable.com/2011/09/23/ui-design-examples/">"Ten Good
-                            Designs"</a>, by Kelli Shaver. Find examples of good designs from 2014 or 2015. Again,
-                            compare and indicate differences.
-                            Write a short (5-6 line) summary of the 3 main points, which typically rank a user interfce
-                            designs higher according to this article. Present your own ranking of these sites and
-                            explain why do you disagree with the author (a sentence per design).
-                        </li>
-                        <li>
-                            Think about an approach you are taking for some daily activity, like cooking meal for
-                            friends. Think of where will you involve users (your friends) and where would you work
-                            iteratively, which steps will you repeat and what tasks will you perform. Describe shortly
-                            an example. Consult here the discussion on page 20 in the course book.
-                        </li>
-                        <li>
-                            Read and study the text of HCI Assignments - General.
-                            Choose one of the two domains.
-                            Explore the provided relevant links to this domain to get inspirations.
-                            Write down your first list of ideas for an application, target group, etc.
-                            Motivate why are you choosing for this domain and this application, e.g. why is it an
-                            interesting and necessessary application, why is the target group interesting to focus on.
-                            Identify the users to collect input from. Each team member is responsible for 1 user.
-                            Select four out of the six tasks to be covered in the Assignment 1.
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-2">
-                    <a class="accordion-toggle">Lab session 2</a>
-                </h3>
-            </div>
-            <div id="lab-panel-2" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h2>Lab exercises 2</h2>
-
-                    <ol>
-                        <li>
-                            Find two examples of the use of a "semantic differential" scale in Web
-                            surveys. Comment briefly on whether these examples demonstrate an appropriate use of the
-                            scale. Background reading: see Ch. 2 of the course book.
-                        </li>
-                        <li>
-                            Describe two "Personas" (see Ch. 3 of the course book) for one of your favorite Web
-                            applications. Use this experience to compare briefly the Personas technique with other user
-                            profiling techniques.
-                        </li>
-                        <li>
-                            Read Sec. 1.3 in Ch. 4 of the course book. Describe briefly your own mental model of your
-                            popular search engine, both for text and images (e.g. regular Google search and Google image
-                            search). Think of another user group (e.g. elderly people, different education, different
-                            culture, ...) and consider briefly how the mental model of members of this group might
-                            differ from yours.
-                        </li>
-                        <li>
-                            Read Sec. 5.2 of the course book ("Four psychological principles"). Give for each principle
-                            an example based on your own experince and explain briefly.
-                        </li>
-                        <li>
-                            Study the article <a href="http://news.bbc.co.uk/2/hi/technology/6653119.stm">Web 2.0
-                            neglecting good design</a>. Give your opinion (including short rationale) in 5-15 lines.
-                        </li>
-                        <li>
-                            Study the articles <a href="http://arstechnica.com/journals/apple.ars/2007/1/19/6688">"iPhone
-                            interface analysis from an actual usability expert. Gasp!"</a>
-                            and
-                            <a href="http://www.asktog.com/columns/070iPhoneFirstLook.html">"The iPhone User Experience:
-                                A First Look"</a>.
-                            Is iPhone as revolutionary as claimed? Explain why.
-                            Is the multi-touch interface truly breakthrough as claimed? Explain why. Study the article
-                            <a href="https://gigaom.com/2013/09/23/the-biggest-hiccups-in-ios-7s-new-ui/">The biggest
-                                hiccups in iOS7s new UI</a>. Compare with the issues mentioned in the previous articles
-                            in 2007. How would you evaluate the iPhone interface and the multi-touch interface in terms
-                            of the bad/good design and interface mistakes you have learned in the first two exercises of
-                            Lab exercises 1?
-                        </li>
-                        <li>
-                            Work on Assignment 1. Plan your interviews to collect input and feedback from 4 potential
-                            users from your target group. Perform the tasks of Assignment 1.
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-3">
-                    <a class="accordion-toggle">Lab session 3</a>
-                </h3>
-            </div>
-            <div id="lab-panel-3" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h2>No content made available</h2>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-4">
-                    <a class="accordion-toggle">Lab session 4</a>
-                </h3>
-            </div>
-            <div id="lab-panel-4" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h2>Some content made available</h2>
-
-                    <p>The Questions aren't uploaded yet but the resources are</p>
-
-                    <a class="btn btn-primary" href="Lab-4-SUSquestionnaire.pdf" target="_blank">Resource 1</a>
-                    <a class="btn btn-primary" href="Lab-4-SUSquestionnaire2.pdf" target="_blank">Resource 2</a>
-                </div>
-            </div>
-        </div>
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-5">
-                    <a class="accordion-toggle">Lab session 5</a>
-                </h3>
-            </div>
-            <div id="lab-panel-5" class="panel-collapse collapse">
-                <div class="panel-body">
-                    <h2>No content made available</h2>
-                </div>
-            </div>
-        </div>
+<div class="panel-group" id="lab-panel">
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-1">
+            <a class="accordion-toggle">Lab session 1</a>
+        </h3>
     </div>
-
-    <div class="panel panel-info">
-        <div class="panel-heading">
-            <h3 class="panel-title">Note</h3>
-        </div>
+    <div id="lab-panel-1" class="panel-collapse collapse">
         <div class="panel-body">
-            A lot of the lab session sources aren't online at the time
+            <h2>Lab exercises 1</h2>
+
+            <ol>
+                <li>
+                    Study the <a href="http://www.useit.com/alertbox/9605.html">"Top Ten Mistakes in Web
+                    Design"</a> by Jacob Nielsen. Compare with a newer list from 2014 <a
+                        href="http://www.entrepreneur.com/article/234129"> The 10 Most Deadly Mistakes in
+                    Website Design</a>. What are differences? What are new things?
+                    Write a short (4-5 line) summary of the article and rank the mistakes in the order of their
+                    importance according to you (rationale per mistake in one sentence).
+                </li>
+                <li>
+                    Study the <a href="http://www.useit.com/alertbox/bad-design.html">"Four Bad Designs"</a>, by
+                    Jacob Nielsen. Compare them with a newer list from 2015 <a
+                        href="https://www.elegantthemes.com/blog/resources/bad-web-design-a-look-at-the-most-hilariously-terrible-websites-from-around-the-web">Bad
+                    Web Design</a>. What are differences? What are new things?
+                    Write a short (4-5 line) summary of the article and rank the bad designs in the order of
+                    their importance according to you (rationale per mistake in one sentence).
+                </li>
+                <li>
+                    Study the <a href="http://mashable.com/2011/09/23/ui-design-examples/">"Ten Good
+                    Designs"</a>, by Kelli Shaver. Find examples of good designs from 2014 or 2015. Again,
+                    compare and indicate differences.
+                    Write a short (5-6 line) summary of the 3 main points, which typically rank a user interfce
+                    designs higher according to this article. Present your own ranking of these sites and
+                    explain why do you disagree with the author (a sentence per design).
+                </li>
+                <li>
+                    Think about an approach you are taking for some daily activity, like cooking meal for
+                    friends. Think of where will you involve users (your friends) and where would you work
+                    iteratively, which steps will you repeat and what tasks will you perform. Describe shortly
+                    an example. Consult here the discussion on page 20 in the course book.
+                </li>
+                <li>
+                    Read and study the text of HCI Assignments - General.
+                    Choose one of the two domains.
+                    Explore the provided relevant links to this domain to get inspirations.
+                    Write down your first list of ideas for an application, target group, etc.
+                    Motivate why are you choosing for this domain and this application, e.g. why is it an
+                    interesting and necessessary application, why is the target group interesting to focus on.
+                    Identify the users to collect input from. Each team member is responsible for 1 user.
+                    Select four out of the six tasks to be covered in the Assignment 1.
+                </li>
+            </ol>
         </div>
     </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-2">
+            <a class="accordion-toggle">Lab session 2</a>
+        </h3>
+    </div>
+    <div id="lab-panel-2" class="panel-collapse collapse">
+        <div class="panel-body">
+            <h2>Lab exercises 2</h2>
+
+            <ol>
+                <li>
+                    Find two examples of the use of a "semantic differential" scale in Web
+                    surveys. Comment briefly on whether these examples demonstrate an appropriate use of the
+                    scale. Background reading: see Ch. 2 of the course book.
+                </li>
+                <li>
+                    Describe two "Personas" (see Ch. 3 of the course book) for one of your favorite Web
+                    applications. Use this experience to compare briefly the Personas technique with other user
+                    profiling techniques.
+                </li>
+                <li>
+                    Read Sec. 1.3 in Ch. 4 of the course book. Describe briefly your own mental model of your
+                    popular search engine, both for text and images (e.g. regular Google search and Google image
+                    search). Think of another user group (e.g. elderly people, different education, different
+                    culture, ...) and consider briefly how the mental model of members of this group might
+                    differ from yours.
+                </li>
+                <li>
+                    Read Sec. 5.2 of the course book ("Four psychological principles"). Give for each principle
+                    an example based on your own experince and explain briefly.
+                </li>
+                <li>
+                    Study the article <a href="http://news.bbc.co.uk/2/hi/technology/6653119.stm">Web 2.0
+                    neglecting good design</a>. Give your opinion (including short rationale) in 5-15 lines.
+                </li>
+                <li>
+                    Study the articles <a href="http://arstechnica.com/journals/apple.ars/2007/1/19/6688">"iPhone
+                    interface analysis from an actual usability expert. Gasp!"</a>
+                    and
+                    <a href="http://www.asktog.com/columns/070iPhoneFirstLook.html">"The iPhone User Experience:
+                        A First Look"</a>.
+                    Is iPhone as revolutionary as claimed? Explain why.
+                    Is the multi-touch interface truly breakthrough as claimed? Explain why. Study the article
+                    <a href="https://gigaom.com/2013/09/23/the-biggest-hiccups-in-ios-7s-new-ui/">The biggest
+                        hiccups in iOS7s new UI</a>. Compare with the issues mentioned in the previous articles
+                    in 2007. How would you evaluate the iPhone interface and the multi-touch interface in terms
+                    of the bad/good design and interface mistakes you have learned in the first two exercises of
+                    Lab exercises 1?
+                </li>
+                <li>
+                    Work on Assignment 1. Plan your interviews to collect input and feedback from 4 potential
+                    users from your target group. Perform the tasks of Assignment 1.
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-3">
+            <a class="accordion-toggle">Lab session 3</a>
+        </h3>
+    </div>
+    <div id="lab-panel-3" class="panel-collapse collapse">
+        <div class="panel-body">
+            <h2>Lab Exercises 3</h2>
+
+            <ol>
+                <li>
+                    In Sec. 9.2 a number of ISO standards for HCI are mentioned. Check whether you can access these
+                    standards online. Give your opinion on the access policy of ISO.
+                </li>
+                <li>
+                    Study one of the style guides listed on pp. 168-169. Give a brief summary of the style guide. Give
+                    your opinion on the general usefulness of style guides.
+                </li>
+                <li>
+                    Study the four UI design principles described in Sec. 9.3. Do a quick-and-dirty analysis of the
+                    Blackboard UI from the perspective of these principles, using your own experience as background
+                    knowledge.
+                </li>
+                <li>
+                    Sec. 9:4.2: most of you will have seen the W3C content accessibility guidelines before, e.g. during
+                    the course Web Technology <a href="http://www.w3.org/TR/WCAG/">WCAG 2.0</a> and <a
+                        href="http://www.w3.org/standards/webdesign/accessibility"> W3C Accessibility Initiative</a>.
+                    Give a brief analysis of Blackboard from the perspective of "Principle 3:
+                    Understandable" of the updated guidelines.
+                </li>
+                <li>
+                    In the well-known article <a
+                        href="http://www.ics.uci.edu/~taylor/classes/121/IEEE86_Parnas_Clement.pdf">A Rational Design
+                    Process: How and Why to Fake It</a> (IEEE Trans. Soft Eng, 1986) David Parnas argues that rational
+                    top-down software design is usually an illusion, but that it is still useful to document the design
+                    afterwords as a post-hoc rationalization. Discuss whether this adagium of Parnas applies
+                    (equally/less/even more) to UI design.
+                </li>
+                <li>
+                    Study the text on metaphors (Sec. 10.4) and the examples using metaphors in Sec 16:3.6 and 16.7).
+                    Give an example of a metaphor used in a popular website. Think of a metaphor that you could use for
+                    the envisaged UI functionality of the application under development in the assignments.
+                </li>
+                <li>
+                    Give an example from your own experience of an anthropomorphic interaction style, as described in
+                    Sec. 11:2.5.
+                </li>
+                <li>
+                    Sec. 13.3: colors have different interpretation in different cultures. Find out how different
+                    cultures (at least three) interpret the colors red, white and black.
+                </li>
+                <li>
+                    Give from your own experience one good example and one poor example of the use of moving images
+                    (Sec. 13.5) in the design of a UI.
+                </li>
+                <li>
+                    Give from your own experience one good example and one poor example of the use of sound (Sec. 13.6)
+                    in the design of a UI.
+                </li>
+                <li><b>Preparations for Assignment 2:</b>
+                    <ul>
+                        <li>Study the prototyping tools for Assignment 2 (check on BB materials &amp; announcements).
+                            Test them and make a selection which one to use.
+                        </li>
+                        <li>Make an initial sketch of your low-fidelity prototype.</li>
+                        <li>Make a planning (with times/dates/people involved) of the work you need to do for Assignment
+                            2.
+                        </li>
+                        <li>Invite and schedule a time (as part of the planning above) for a member of another group to
+                            perform the "Heuristic evaluation" of your high-fidelity prototype.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-4">
+            <a class="accordion-toggle">Lab session 4</a>
+        </h3>
+    </div>
+    <div id="lab-panel-4" class="panel-collapse collapse">
+        <div class="panel-body">
+            <h2>Lab exercises 4</h2>
+
+            <ol>
+                <li>
+                    Consider Sec. 12.3.1. Accessibility guidelines often state the need for keyboard shortcuts of GUI
+                    operations. Describe the rationale for this. Is there something special about keyboards?
+                </li>
+                <li>
+                    Give from your own experience a good and a bad example of natural grouping (Sec. 14.3.1).
+                </li>
+                <li>
+                    Read the definition of the notion of "widget" in the introduction of Ch. 16. Consider also the
+                    notion of widget in the Yahoo widget library (<a
+                        href="http://news.cnet.com/8301-17938_105-10217972-1.html">Yahoo Widgets hands-on review</a>.
+                    Briefly discuss similarities and/or differences.
+                </li>
+                <li>
+                    Can you think of an improper use of a message box and of a dialog box (Sec. 16.4.2)?
+                </li>
+                <li>
+                    Consider the guidelines for the UI design of handheld devices in Table 18.1. Apply these guidelines
+                    to a handheld device you are familiar with. Discuss briefly whether these guidelines from 2002 are
+                    still appropriate.
+                </li>
+                <li>
+                    Ch. 17 discusses UI design for the Web. Discuss briefly what in your opinion are the key
+                    distinguishing features of Web UI design compared to "regular" UI design.
+                </li>
+                <li>Select two of the tools from the list in the description of assignment 2. Compare the two tools
+                    w.r.t. types and level of support they provide for HCI prototyping.
+                </li>
+                <li>Read the article on Heuristic Evaluation in the Materials folder on Blackboard. Compare the
+                    heuristics used in this article with the heuristics in Table 26.1 of the course book and report your
+                    findings.
+                </li>
+                <li>Read the article <a href="http://www.nngroup.com/articles/how-users-read-on-the-web/">How users read
+                    on the web</a>. Briefly summarise the main points, which you need to consider when designing for the
+                    Web.
+                </li>
+                <li>
+                    Preparations for Assignment 2:
+                    <ul>
+                        <li>Select the tools for your high-fidelity prototype.</li>
+                        <li>Give a brief summary of the results of the low-fidelity prototype.</li>
+                        <li>Prepare the first draft of the heuristic check for your high-fidelity prototype</li>
+                        <li>Check the planning of work on Assignment. Make sure you have enough time to finalize the
+                            prototyping and the evaluation.
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+
+            <p>Resources can be found here:</p>
+
+            <div class="btn-group btn-group-justified">
+                <a class="btn btn-primary" href="res/Lab-4-SUSquestionnaire.pdf" target="_blank">Resource 1</a>
+                <a class="btn btn-primary" href="res/Lab-4-SUSquestionnaire2.pdf" target="_blank">Resource 2</a>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-5">
+            <a class="accordion-toggle">Lab session 5</a>
+        </h3>
+    </div>
+    <div id="lab-panel-5" class="panel-collapse collapse">
+        <div class="panel-body">
+            <h2>Lab exercises 5</h2>
+
+            <p><strong>Note:</strong> These exercises form a preparation for the work on evaluation (today's lecture &amp; assignment 3). You might want to use some of the answers to update your assignment. </p>
+
+            <ol>
+                <li> Review the usability requirements you specified for assignment 1 based on the text on pp. 440-441. Did you include quantitative specifications of usability metrics? Discuss briefly wether the metric performance levels described in Box 21.1 would be of use in the context of your assignment. </li>
+                <li> Consider Figs. 21.1-3. Discuss briefly the relative importance of the "5 Es" for your   target application. </li>
+                <li> Box 23.1 describes five usability attributes for UI rating in questionnaires: learnability, helpfulness, control, efficiency, affect. Select one questionnaire from Table 23.2 (here is the <a href="http://www.measuringusability.com/sus.php">System Usability Scale </a>) and tag at least 10 questions with one or more of these attributes (a tag should indicate that the question can give you insight into this usability attribute).  </li>
+                <li> Read Box 24.1. Would this be an appropriate consent form for a final evaluation of your final prototype? Adapt the form so that it is suitable for your evaluation (indicate what you would like to delete/add and why).
+                </li>
+                <li>A <em>coding scheme</em> (p. 515) is often used to analyse qualitative data, such as transcripts from interviews. In retrospect, sketch a possible coding scheme for the interviews you did for assignment 1. </li>
+                <li> Read the <a href="http://www.usercentric.com/news/2011/01/26/eye-tracking-bing-vs-google-second-look">report</a> on the interface of Google vs. Bing with respect to time looked at ads. Describe the experimental methodology that was used (e.g. observational, quasi-experimental, experimental)  and motivate your answer. Can you think of improvements for this study? </li>
+                <li> Which are the variables (independent, dependent) in the
+                    Google-Bing study? </li>
+                <li> Consider the <a href="http://www.gv.com/lib/how-to-find-great-participants-for-your-user-study">guidelines</a> desribed by Margolis for recruiting participants for a user
+                    study. Summarize the main points of his article. </li>
+                <li> Give examples of an apropriate use of <strong>randomization and
+                    control</strong> in your final evaluation in assignment 3. Explain
+                    why would you use each of them and how does it relate to your
+                    hypothesis answering.</li>
+                <li>What is the most appropriate <strong>sample(s)</strong> (e.g. characteristics of the users in the samples, size, number of samples, etc.) for the final (summative) evaluation of your prototype? Show and explain why they would be a <strong>representative sample(s)</strong> for the target population of your prototype? </li>
+                <li>What do you need to do in order to ensure internal and external
+                    validity of an evaluation of your prototype? Explain shortly your
+                    rational and choices and how do they relate to the goals of your
+                    prototype. </li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title" data-toggle="collapse" data-parent="#lab-panel" data-target="#lab-panel-6">
+            <a class="accordion-toggle">Presentation specs</a>
+        </h3>
+    </div>
+    <div id="lab-panel-6" class="panel-collapse collapse">
+        <div class="panel-body">
+            <h2>Final presentation of your Assignment Work</h2>
+
+            Suggested length of your slides	is 8 slides	with as suggested content:
+
+            <ul>
+                <li>your names, group number, selected domain</li>
+                <li>user profile (be very specific, don’t repeat assignment points)</li>
+                <li>prototypes (low fidelity + high fidelity)</li>
+                <li>selected / most important requirements</li>
+                <li>tasks - with focus on the 2 new tasks</li>
+                <li>UI design, e.g. content diagrams, etc. (make sure it is readable)</li>
+                <li>results of cognitive walkthrough & heurisic evaluation</li>
+                <li>experimental plan under development in Assignment 3</li>
+            </ul>
+
+            Further Specifications:
+
+            <ul>
+                <li><strong>Max 10 minutes per group (7 mins presentation + 3 mins questions)</strong></li>
+                <li><strong>Rehearse the presentation to make sure you don’t go over time</strong></li>
+                <li><strong>Submit your slides (in PDF) by Wednesday 17 June 5:00 pm</strong></li>
+                <li><strong>The sequence of group will by group number</strong></li>
+                <li><strong>This grade will form part of the overall grade for Assignment 3</strong></li>
+                <li><strong>Check the Schedule for your Presentation Room</strong></li>
+                <li><strong>Don’t be late – be there 10 mins before the start of the session</strong></li>
+                <li><strong>Be present through the whole session</strong></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="panel panel-default">
+
+</div>
+</div>
+
+<div class="panel panel-info">
+    <div class="panel-heading">
+        <h3 class="panel-title">Note</h3>
+    </div>
+    <div class="panel-body">
+        A lot of the lab session sources aren't online at the time
+    </div>
+</div>
 
 </div>
 <div id="hci-assignments-general" class="tab-pane fade in section level2">
@@ -1344,11 +1544,17 @@
         </div>
         <div class="panel-body">
             <p>Arthur de Fluiter, I created the site<br>Check out my <a href="http://if4u.nl">personal site</a></p>
+
             <p>The team from the Human Computer Interaction Course who made the content</p>
+
             <p>Bob van den Berg, for the nice link to the book</p>
+
             <p><a href="http://jQuery.com">jQuery</a>, the JS framework</p>
+
             <p><a href="http://getbootstrap.com">Bootstrap</a>, the JS/CSS framework</p>
+
             <p><a href="http://bootswatch.com/">Bootwatch</a>, the bootstrap theme</p>
+
             <p><a href="http://fullcalendar.io">Full Calendar</a>, the framework for creating calendars</p>
         </div>
     </div>
@@ -1357,16 +1563,43 @@
             <h4 class="panel-title">Updates</h4>
         </div>
         <div class="panel-body">
-        <ul>
-            <li>Added theme</li>
-            <li>Added notes tab</li>
-            <li>Updated navigation, removed pills</li>
-            <li>Added Calendar style</li>
-            <li>Code Clean up</li>
-            <li>Added Book link (thanks Bob)</li>
-            <li>Added Lab sessions</li>
-            <li>Launch</li>
-        </ul>
+            <ul>
+                <li>Created download tab with slides as suggested by Radu Jica</li>
+                <li>Lab sessions of week 2 uploaded</li>
+                <li>Added theme</li>
+                <li>Added notes tab</li>
+                <li>Updated navigation, removed pills</li>
+                <li>Added Calendar style</li>
+                <li>Code Clean up</li>
+                <li>Added Book link (thanks Bob)</li>
+                <li>Added Lab sessions</li>
+                <li>Launch</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="downloads" class="tab-pane fade section level2">
+    <h2>Downloads</h2>
+
+    The book can be found:<a href="http://bookzz.org/book/1183037/c06bc1" target="_blank">here</a>
+
+    <br /><br />
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h2 class="panel-title">Slides download (all compressed)</h2>
+        </div>
+        <div class="panel-body">
+            <div class="btn-group-justified"><a href="res/Slides1-Requirements.pdf">Slides 1 - Requirements</a></div>
+            <br>
+            <div class="btn-group-justified"><a href="res/Slides2-Concept.pdf">Slides 2 - Conceptual Design</a></div>
+            <br>
+            <div class="btn-group-justified"><a href="res/Slides3-HCI_design.pdf">Slides 3 - HCI design</a></div>
+            <br>
+            <div class="btn-group-justified"><a href="res/Slides4-HCI_prototyping.pdf">Slides 4 - HCI Prototyping</a></div>
+            <br>
+            <div class="btn-group-justified"><a href="res/Slides5-Usability.pdf">Slides 5 - Usability</a></div>
+            <br>
+            <div class="btn-group-justified"><a href="res/Slides6-Exams.pdf">Slides 6 - Exam preperation</a></div>
         </div>
     </div>
 </div>
