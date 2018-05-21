@@ -9,7 +9,7 @@ html, body {
   background-position: right top;
   background-attachment: fixed;
   background-size: 100vw 100vh;
-  animation: rainbow 100s ease infinite; 
+  animation: rainbow 100s ease infinite;
 }
 
 @keyframes rainbow {
@@ -43,26 +43,6 @@ hr {
   height: 0;
 }
 
-@media (min-width:900px){
-  /* get 2 blocks side by side */
-  .binary-explorer, .explanation-block {
-    min-height: 100vh;
-    width: 50%;
-    float: left;
-    padding: 1em 2em;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  /* get 2 blocks side by side */
-  .binary-explorer, .explanation-block {
-    min-height: 50vh;
-    width: 100vw;
-    float: left;
-    padding: 1em 2em;
-  } 
-}
-
 .container {
   margin: 3em auto;
   min-width: 90%;
@@ -87,7 +67,7 @@ button {
 
 .dark-theme button {
   background: white;
-  color:#2d2727;  
+  color:#2d2727;
 }
 
 
@@ -99,15 +79,15 @@ button {
 .code {
   font-family: monospace;
   font-size: 14px;
-  padding: 1em; 
+  padding: 1em;
   text-align: center;
   display:inline-block;
 }
 
-.code::after { 
+.code::after {
   content: " ";
-  display: block; 
-  height: 0; 
+  display: block;
+  height: 0;
   clear: both;
 }
 
@@ -121,10 +101,10 @@ button {
 }
 
 .dark-theme .byte {
-  background: rgba(0, 0, 0, 0.4);   
+  background: rgba(0, 0, 0, 0.4);
 }
 
-.clear { 
+.clear {
   clear:both;
 }
 
@@ -143,26 +123,20 @@ button {
 .text-data                 { border-left-color: #1466D7; }
 .text-data:hover           { background: #033D8D; color:white;}
 
-
-
-.explanation-block {
-  background: rgba(0, 0, 0,0.3);
-}
-
-a, a:visited { 
-  color: black; 
+a, a:visited {
+  color: black;
   font-weight: 900;
   text-decoration: none;
 }
 
-.dark-theme a, .dark-theme a:visited { 
-  color: white; 
+.dark-theme a, .dark-theme a:visited {
+  color: white;
 }
 
 pre {
   font-family: monospace;
   background: rgba(0, 0, 0, 0.2);
-  padding: 1em 0 0 0;
+  padding: 1em 0 1em 0;
 }
 
 .dark-theme pre {
@@ -183,3 +157,28 @@ pre {
 
 
 
+@media (min-width:900px){
+  /* get 2 blocks side by side */
+  .binary-explorer, .explanation-block {
+    min-height: 100vh;
+    width: 50%;
+    float: left;
+    padding: 1em 2em;
+  }
+
+  .explanation-block {
+    background: rgba(0, 0, 0,0.3);
+  }
+}
+
+@media only screen and (max-width:900px) {
+  /* get 2 blocks side by side */
+  .binary-explorer, .explanation-block {
+    width: 100vw;
+    float: left;
+  }
+
+  .container { margin: 1em; padding: 0.5em 1em; }
+  .code { padding: 0px;}
+  .byte { padding: 4px; padding:4px;}
+}
