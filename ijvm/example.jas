@@ -1,0 +1,21 @@
+.constant
+  a -1
+  b 2
+  c 3
+.end-constant
+
+
+.main
+  BIPUSH 112 // P
+  DUP        // P, P
+  BIPUSH -1  // P, P, -1
+  IADD       // P, O
+  DUP        // P, O, O
+  DUP        // P, O, O, O
+  BIPUSH -1  // P, O, O, O
+  ISUB       // P, O, O, P
+  OUT
+  OUT
+  OUT
+  OUT
+.end-main

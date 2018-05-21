@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title>IJVM file interactive guide</title>
+    <link rel="stylesheet" href="css/index.css">
+  </head>
+  <body class="dark-theme">
+  <div class="binary-explorer">
+    <div class="container">
+      <h1>Binary</h1>
+      <hr/>
+
+      <p>Here is an example IJVM binary, click on the bytes</p> 
+      <div class="code">
+        <div class="magic-header byte">1D</div>
+        <div class="magic-header byte">EA</div>
+        <div class="magic-header byte">DF</div>
+        <div class="magic-header byte">AD</div>
+        <div class="constantpool-origin byte">00</div>
+        <div class="constantpool-origin byte">01</div>
+        <div class="constantpool-origin byte">00</div>
+        <div class="constantpool-origin byte">00</div>
+        <div class="constantpool-size byte clear">00</div>
+        <div class="constantpool-size byte">00</div>
+        <div class="constantpool-size byte">00</div>
+        <div class="constantpool-size byte">0C</div>
+        <div class="constantpool-data byte">FF</div>
+        <div class="constantpool-data byte">FF</div>
+        <div class="constantpool-data byte">FF</div>
+        <div class="constantpool-data byte">FF</div>
+        <div class="constantpool-data byte clear">00</div>
+        <div class="constantpool-data byte">00</div>
+        <div class="constantpool-data byte">00</div>
+        <div class="constantpool-data byte">02</div>
+        <div class="constantpool-data byte">00</div>
+        <div class="constantpool-data byte">00</div>
+        <div class="constantpool-data byte">00</div>
+        <div class="constantpool-data byte">03</div>
+        <div class="text-origin byte clear">00</div>
+        <div class="text-origin byte">00</div>
+        <div class="text-origin byte">00</div>
+        <div class="text-origin byte">00</div>
+        <div class="text-size byte">00</div>
+        <div class="text-size byte">00</div>
+        <div class="text-size byte">00</div>
+        <div class="text-size byte">0F</div>
+        <div class="text-data byte clear">10</div>
+        <div class="text-data byte">70</div>
+        <div class="text-data byte">59</div>
+        <div class="text-data byte">10</div>
+        <div class="text-data byte">FF</div>
+        <div class="text-data byte">60</div>
+        <div class="text-data byte">59</div>
+        <div class="text-data byte">59</div>
+        <div class="text-data byte clear">10</div>
+        <div class="text-data byte">FF</div>
+        <div class="text-data byte">64</div>
+        <div class="text-data byte">FD</div>
+        <div class="text-data byte">FD</div>
+        <div class="text-data byte">FD</div>
+        <div class="text-data byte">FD</div>
+      </div>
+
+      <button id="switch-theme">Switch theme</button>
+    </div>
+  </div>
+  <div class="explanation-block">
+    <div class="container explanation">
+      <div id="explanation-content">
+        <div id="intro-explanation">
+          <h1>Explanation</h1>
+          <hr/>
+          <p>
+          During your first week you'll have to write a program
+          that parses these files in the most basic way.
+          </p>
+
+          <p>
+            To make this process somewhat easier, here's a visual guide for 
+            an example program. It's spelled out as much as possible. Press the 
+            bytes to view their role.
+          </p>
+
+          <strong>Note:</strong>
+          <p>
+            The entire file is in <strong>BIG-ENDIAN</strong>, while your 
+            computers work in <strong>LITTLE-ENDIAN</strong>. TL;DR Endianness
+            is about byte ordering. Whether [0x01, 0x00, 0x00, 0x00] should be 1
+            or 0x01000000, big endian means the first byte is the biggest, little 
+            endian means the first byte is the smallest. <a href="https://en.wikipedia.org/wiki/Endianness">[see]</a> 
+          </p>
+        </div>
+        <div id="magic-explanation" class="off">
+          <h1>File header</h1>
+          <hr/>
+
+          <p>
+          Every file starts off with a small file header, especially for binaries
+          these are often used to specify size/position of the parts of the binary. 
+          </p>
+
+          <p>
+          The IJVM header is rather simple, containing no real meta data, like
+          ELF-binaries do.
+          </p>
+          <div id="magic-header-explanation">
+            <h2>Magic bytes</h2>
+            <hr/>
+            <p>
+            The first 4 bytes of the file are the constant value <code>1DEADFAD</code>, 
+            This is to identify the file as being an IJVM executable. 
+            You'll find that all sorts of files, like pictures, start with a 
+            constant number of bytes.
+            </p>
+
+            <p>
+            This custom is called MIME typing, and is used as both a way to
+            identify the exact filetype, and to ensure you're not trying to run
+            a file of the wrong type.
+            </p>
+
+            <strong>Note:</strong>
+            <p>
+              If you want to avoid looking a bunch of headaches, check this 
+              value before continuing, or you might end up in a rather complex 
+              debug session for a very easy mistake.
+            </p>
+          </div>
+        </div>
+        <div id="constantpool-explanation" class="off">
+          <h1>Constant pool</h1>
+          <hr />
+          
+          <p>
+          This is where the IJVM stores all of it's constants, similar
+          to read-only memory. The idea is to store large numbers/very 
+          distinct numbers here constants here.
+          </p>
+
+          <div id="constantpool-origin-explanation">
+            <h2>Constant pool origin</h2>
+            <hr/>
+            <p>
+              The first 4 bytes of the constant pool block represent the place
+              the constant pool has to be "mapped in", into memory. In this case
+              that's the address <code>0x00010000</code>.
+            </p>
+            <p>    
+              Binaries need to know where to find the constant they want, 
+              which for most assembly languages is given in an absolute address. 
+              E.g. <code>0x00010004</code>, the computer will then directly read
+              from there.  
+            </p>
+            <strong>Note:</strong>
+            <p>
+              IJVM instructions that deal with constants actually work with an
+              offset from the start of the constant pool, rather than absolute 
+              addresses. As such you don't really need to take this number into 
+              account.
+            </p>
+          </div>
+          <div id="constantpool-size-explanation">
+            <h2>Constant pool size</h2>
+            <hr/>
+            <p>
+              This is simply the number of bytes in this block 
+              <emph>excluding</emph> the origin and size. 
+            </p>
+            <p>In this case, this is: 0xc or 12 in decimal</p>
+          </div>
+          <div id="constantpool-data-explanation">
+            <h2>Constant pool data</h2>
+            <hr/>
+            <p>
+              The actual constants, 32 bit signed integers (two's complement), 
+              since these are 4-bytes a piece, there are 12/4 = 3 constants here, these are:<p>
+            </p>
+            <pre>
+              0xffffffff = -1
+              0x00000002 =  2
+              0x00000003 =  3
+            </pre>
+            
+          </div>
+        </div>
+        <div id="text-explanation" class="off">
+          <h1>Text</h1>
+          <hr/>
+
+          <p>
+            Text is the section in the binary with the actual machine code,
+            the translated assembly.
+          </p>
+          <div id="text-origin-explanation">
+            <h2>Text origin</h2>
+            <hr/>
+            <p>
+              This is really just the same story as the constant pool's origin
+            </p>
+            <strong>Note:</strong>
+            <p>
+              For the debugger bonus, you set a breakpoint on the virtual 
+              address, an absolute value, which you'll need to have read here.
+            </p>
+          </div>
+          <div id="text-size-explanation">
+            <h2>Text size</h2>
+            <hr/>
+            <p>
+              IJVM assembly is variable sized, some instructions take arguments
+              and take up more space than others. As such this number is not the
+              same as the amount of instructions total.
+            </p>
+          </div>
+          <div id="text-data-explanation">
+            <h2>Actual program</h2>
+            <hr/>
+            <p>
+              This will be the assembler your program will execute, we've 
+              written out the instructions that these bytes represent with 
+              their opcodes
+            <p>
+            <pre>
+              .main
+                BIPUSH 0x70    // 10 70          
+                DUP            // 59             
+                BIPUSH 0xff    // 10 ff          
+                IADD           // 60             
+                DUP            // 59             
+                DUP            // 59             
+                BIPUSH 0xff    // 10 ff          
+                ISUB           // 64             
+                OUT            // fd             
+                OUT            // fd             
+                OUT            // fd             
+                OUT            // fd             
+              .end-main
+            
+            </pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    var blockIds = ["intro", "magic", "constantpool", "text"];
+    var headings = ["magic-header", "constantpool-origin", "constantpool-size", "constantpool-data", "text-origin", "text-size", "text-data"];
+
+    window.onload = function() {
+      function explain(block, heading) {
+        var i;
+        for (i = 0; i < blockIds.length; i++) {
+          var elem = document.getElementById(blockIds[i] + "-explanation");
+          elem.className = blockIds[i] != block ? "off" : "";
+        }
+
+        for (i = 0; i < headings.length; i++) {
+          var elem = document.getElementById(headings[i] + "-explanation");
+          elem.className = headings[i] == heading ? "highlight" : "";
+        }
+      }
+
+      headings.forEach(function(x){
+        var blockId = x.split("-")[0];
+        var headId = x.split("-")[1];
+
+        var elemList = document.getElementsByClassName(x);
+        
+        [].slice.call(elemList).forEach(function(elem){
+          if (!elem)
+            return;
+          
+          elem.addEventListener("click", function(){explain(blockId, x);});
+        });
+      });
+
+      document.getElementById("switch-theme").addEventListener("click", function(){
+        var body = document.getElementsByTagName("body").item(0);
+        body.className = body.className != "dark-theme" ? "dark-theme" : "";
+      });
+    }
+    </script>
+    </body>
+</html>
