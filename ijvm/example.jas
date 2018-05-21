@@ -6,14 +6,14 @@
 
 
 .main
-  BIPUSH 112 // P
-  DUP        // P, P
-  BIPUSH -1  // P, P, -1
-  IADD       // P, O
-  DUP        // P, O, O
-  DUP        // P, O, O, O
-  BIPUSH -1  // P, O, O, O
-  ISUB       // P, O, O, P
+  BIPUSH 112
+  DUP
+  BIPUSH -1
+  IADD
+  DUP
+  DUP
+  BIPUSH -1
+  ISUB
   OUT
   OUT
   OUT
