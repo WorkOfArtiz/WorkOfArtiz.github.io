@@ -8,7 +8,7 @@ html, body {
   background-image: url('http://arthur.coffeecup.com/wg_blurred_backgrounds_16.jpg');
   background-position: right top;
   background-attachment: fixed;
-  background-size: 100vw 100vh;
+  background-size: 100% 100%;
   animation: rainbow 100s ease infinite;
 }
 
@@ -57,20 +57,21 @@ hr {
 }
 
 button {
-  background:#2d2727;
-  color: white;
   border:none;
   display:block;
   margin: 3em 1em 1em 1em;
   padding: 10px 20px;
 }
 
-.dark-theme button {
-  background: white;
-  color:#2d2727;
+.dark-theme button:hover, button {
+  background:#151313;;
+  color: #ccc;
 }
 
-
+button:hover, .dark-theme button {
+  background: #ccc;
+  color:#151313;;
+}
 
 .binary-explorer {
   margin: 0 auto 0;
@@ -135,7 +136,7 @@ a, a:visited {
 
 pre {
   font-family: monospace;
-  background: rgba(0, 0, 0, 0.2);
+  background: #ccc;
   padding: 1em 0 1em 0;
 }
 
@@ -151,13 +152,15 @@ pre {
   display:none;
 }
 
+.highlight { background: #ccc; } 
+.dark-theme .highlight { background: rgba(0, 0, 0, 0.4);}
 #magic-explanation        .highlight { border-left:5px #570290 solid; }
 #constantpool-explanation .highlight { border-left:5px #D70500 solid; }
 #text-explanation         .highlight { border-left:5px #033D8D solid; }
 
 
 
-@media (min-width:900px){
+@media (min-width:900px) {
   /* get 2 blocks side by side */
   .binary-explorer, .explanation-block {
     min-height: 100vh;
@@ -171,11 +174,16 @@ pre {
   }
 }
 
-@media only screen and (max-width:900px) {
+@media (orientation:portrait), (max-width:900px) {
   /* get 2 blocks side by side */
   .binary-explorer, .explanation-block {
     width: 100vw;
     float: left;
+  }
+
+  button { 
+    margin: 1em 0 1em 0;
+    padding: 5px 10px;
   }
 
   .container { margin: 1em; padding: 0.5em 1em; }
