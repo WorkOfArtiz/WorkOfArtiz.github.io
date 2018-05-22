@@ -35,12 +35,16 @@ hr {
   margin: 3em auto;
   min-width: 90%;
   padding: 1em 2em;
+  
+}
+
+.container, body {
   background:white;
   color:#2d2727;
 }
 
-.dark-theme .container {
-  background: #2d2727;
+.dark-theme .container, body.dark-theme {
+  background-color: #2d2727;
   color: white;
 }
 
@@ -157,7 +161,7 @@ pre {
 
 
 
-@media (min-width:1000px) {
+@media (orientation:landscape) and (min-width:1000px) {
   body {
     background: url('../img/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -199,7 +203,6 @@ pre {
   pre { overflow: hidden;}
 
   .container { margin: 0; padding: 1em 1.5em 1em 1em;}
-  .explanation-block .container {padding-bottom:7em;}
   .code { padding: 0px;}
   .byte { padding: 7px; margin: 2px;}
 }
