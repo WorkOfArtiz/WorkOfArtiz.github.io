@@ -5,7 +5,7 @@ html, body {
   padding: 0;
   width: 100%;
   height: 100%;
-  background-image: url('http://arthur.coffeecup.com/wg_blurred_backgrounds_16.jpg');
+  background-image: url('../img/bg.jpg');
   background-position: right top;
   background-attachment: fixed;
   background-size: 100% 100%;
@@ -35,12 +35,16 @@ hr {
   margin-top: 11px;
   margin-bottom: 30px;
   border: 0;
-  border-top: 1px solid #e6e6e6;
+  border-top: 1px solid #333;
 
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
+}
+
+.dark-theme hr {
+  border-top: 1px solid #e6e6e6;
 }
 
 .container {
@@ -79,7 +83,6 @@ button:hover, .dark-theme button {
 
 .code {
   font-family: monospace;
-  font-size: 14px;
   padding: 1em;
   text-align: center;
   display:inline-block;
@@ -169,12 +172,17 @@ pre {
     padding: 1em 2em;
   }
 
+  .code {
+    font-size: 14px;
+  }
+
   .explanation-block {
     background: rgba(0, 0, 0,0.3);
   }
 }
 
 @media (orientation:portrait), (max-width:900px) {
+
   /* get 2 blocks side by side */
   .binary-explorer, .explanation-block {
     width: 100vw;
@@ -183,10 +191,12 @@ pre {
 
   button { 
     margin: 1em 0 1em 0;
-    padding: 5px 10px;
+    padding: 0.5em 1em;
   }
+
+  pre { overflow: hidden;}
 
   .container { margin: 1em; padding: 0.5em 1em; }
   .code { padding: 0px;}
-  .byte { padding: 4px; padding:4px;}
+  .byte { padding: 7px; margin: 2px;}
 }

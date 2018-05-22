@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8"/>
+    <meta name="HandheldFriendly" content="true"/>
     <title>IJVM file interactive guide</title>
     <link rel="stylesheet" href="css/index.css">
   </head>
@@ -216,24 +217,24 @@
             <h2>Actual program</h2>
             <hr/>
             <p>
-              This will be the assembler your program will execute, we've 
+              This will be the code your program will execute, we've 
               written out the instructions that these bytes represent with 
-              their opcodes
+              their opcodes below:
             <p>
             <pre>
 <!--     --> .main
-<!--     -->   BIPUSH 0x70    // 10 70          
-<!--     -->   DUP            // 59             
-<!--     -->   BIPUSH 0xff    // 10 ff          
-<!--     -->   IADD           // 60             
-<!--     -->   DUP            // 59             
-<!--     -->   DUP            // 59             
-<!--     -->   BIPUSH 0xff    // 10 ff          
-<!--     -->   ISUB           // 64             
-<!--     -->   OUT            // fd             
-<!--     -->   OUT            // fd             
-<!--     -->   OUT            // fd             
-<!--     -->   OUT            // fd             
+<!--     -->   BIPUSH 0x70  // 10 70          
+<!--     -->   DUP          // 59             
+<!--     -->   BIPUSH 0xff  // 10 ff          
+<!--     -->   IADD         // 60             
+<!--     -->   DUP          // 59             
+<!--     -->   DUP          // 59             
+<!--     -->   BIPUSH 0xff  // 10 ff          
+<!--     -->   ISUB         // 64             
+<!--     -->   OUT          // fd             
+<!--     -->   OUT          // fd             
+<!--     -->   OUT          // fd             
+<!--     -->   OUT          // fd             
 <!--     --> .end-main     
 <!--     --></pre>
           </div>
@@ -241,43 +242,6 @@
       </div>
     </div>
   </div>
-  <script>
-    var blockIds = ["intro", "magic", "constantpool", "text"];
-    var headings = ["magic-header", "constantpool-origin", "constantpool-size", "constantpool-data", "text-origin", "text-size", "text-data"];
-
-    window.onload = function() {
-      function explain(block, heading) {
-        var i;
-        for (i = 0; i < blockIds.length; i++) {
-          var elem = document.getElementById(blockIds[i] + "-explanation");
-          elem.className = blockIds[i] != block ? "off" : "";
-        }
-
-        for (i = 0; i < headings.length; i++) {
-          var elem = document.getElementById(headings[i] + "-explanation");
-          elem.className = headings[i] == heading ? "highlight" : "";
-        }
-      }
-
-      headings.forEach(function(x){
-        var blockId = x.split("-")[0];
-        var headId = x.split("-")[1];
-
-        var elemList = document.getElementsByClassName(x);
-        
-        [].slice.call(elemList).forEach(function(elem){
-          if (!elem)
-            return;
-          
-          elem.addEventListener("click", function(){explain(blockId, x);});
-        });
-      });
-
-      document.getElementById("switch-theme").addEventListener("click", function(){
-        var body = document.getElementsByTagName("body").item(0);
-        body.className = body.className != "dark-theme" ? "dark-theme" : "";
-      });
-    }
-    </script>
-    </body>
+  <script src="js/index.js"></script>
+  </body>
 </html>
