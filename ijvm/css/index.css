@@ -160,7 +160,7 @@ pre {
 
 
 
-@media (min-width:900px) {
+@media (orientation:landscape) and (min-width:900px) {
   /* get 2 blocks side by side */
   .binary-explorer, .explanation-block {
     min-height: 100vh;
