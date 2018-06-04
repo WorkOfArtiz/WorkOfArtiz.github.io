@@ -35,7 +35,7 @@ hr {
   margin: 3em auto;
   min-width: 90%;
   padding: 1em 2em;
-  
+
 }
 
 .container, body {
@@ -50,18 +50,19 @@ hr {
 
 .button-group {
   text-align: center;
-  display: flex;
-  flex-wrap: wrap;
+  display: table;
+  width:100%;
+  table-layout: fixed;
+  /* flex-wrap: wrap; */
 }
 
 .button-group > * {
   border:none;
-  display:block;
-  flex:1;
-  /* float: left; */
-  /* width:33%; */
+  display:table-cell;
+  width:1%;
+  float:none;
   font-weight: 300;
-  margin: 1em 0.3em 1em 0.3em;
+
   padding: 10px 20px;
 }
 
@@ -86,7 +87,7 @@ hr {
   display:inline-block;
 }
 
-.code::after, .button-group::after {
+.code::after {
   content: " ";
   display: block;
   height: 0;
@@ -153,7 +154,7 @@ pre {
   display:none;
 }
 
-.highlight { background: #ccc; } 
+.highlight { background: #ccc; }
 .dark-theme .highlight { background: rgba(0, 0, 0, 0.4);}
 #magic-explanation        .highlight { border-left:5px #570290 solid; }
 #constantpool-explanation .highlight { border-left:5px #D70500 solid; }
@@ -161,7 +162,7 @@ pre {
 
 
 
-@media (orientation:landscape) and (min-width:1000px) {
+@media (orientation:landscape) and (min-width:800px) {
   body {
     background: url('../img/bg.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
@@ -172,7 +173,6 @@ pre {
 
   /* get 2 blocks side by side */
   .binary-explorer, .explanation-block {
-    min-height: 100vh;
     width: 50%;
     float: left;
     padding: 1em 2em;
@@ -184,10 +184,11 @@ pre {
 
   .explanation-block {
     background: rgba(0, 0, 0,0.3);
+    min-height:100vh;
   }
 }
 
-@media (orientation:portrait), (max-width:1000px) {
+@media (orientation:portrait), (max-width:800px) {
 
   /* get 2 blocks side by side */
   .binary-explorer, .explanation-block {
@@ -195,7 +196,7 @@ pre {
     float: left;
   }
 
-  /* .button-group > * { 
+  /* .button-group > * {
     margin: 1em 0 1em 0;
     padding: 0.5em 1em;
   } */
@@ -204,5 +205,5 @@ pre {
 
   .container { margin: 0; padding: 1em 1.5em 1em 1em;}
   .code { padding: 0px;}
-  .byte { padding: 7px; margin: 2px;}
+  .byte { padding: 0.8em; margin: 2px;}
 }

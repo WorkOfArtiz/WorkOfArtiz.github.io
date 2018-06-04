@@ -12,7 +12,7 @@
       <h1>Binary</h1>
       <hr/>
 
-      <p>Here is an example IJVM binary, click on the bytes</p> 
+      <p>Here is an example IJVM binary, click on the bytes</p>
       <div class="code">
         <div class="magic-header byte">1D</div>
         <div class="magic-header byte">EA</div>
@@ -62,7 +62,6 @@
         <div class="text-data byte">FD</div>
         <div class="text-data byte">FD</div>
       </div>
-
       <div class="button-group">
         <a id="switch-theme">Switch theme</a>
         <a href="example.jas">JAS file</a>
@@ -82,18 +81,18 @@
           </p>
 
           <p>
-            To make this process somewhat easier, here's a visual guide for 
-            an example program. It's spelled out as much as possible. Press the 
+            To make this process somewhat easier, here's a visual guide for
+            an example program. It's spelled out as much as possible. Press the
             bytes to view their role.
           </p>
 
           <strong>Note:</strong>
           <p>
-            The entire file is in <strong>BIG-ENDIAN</strong>, while your 
+            The entire file is in <strong>BIG-ENDIAN</strong>, while your
             computers work in <strong>LITTLE-ENDIAN</strong>. TL;DR Endianness
             is about byte ordering. Whether [0x01, 0x00, 0x00, 0x00] should be 1
-            or 0x01000000, big endian means the first byte is the biggest, little 
-            endian means the first byte is the smallest. <a href="https://en.wikipedia.org/wiki/Endianness">[see]</a> 
+            or 0x01000000, big endian means the first byte is the biggest, little
+            endian means the first byte is the smallest. <a href="https://en.wikipedia.org/wiki/Endianness">[see]</a>
           </p>
         </div>
         <div id="magic-explanation" class="off">
@@ -102,7 +101,7 @@
 
           <p>
           Every file starts off with a small file header, especially for binaries
-          these are often used to specify size/position of the parts of the binary. 
+          these are often used to specify size/position of the parts of the binary.
           </p>
 
           <p>
@@ -113,9 +112,9 @@
             <h2>Magic bytes</h2>
             <hr/>
             <p>
-            The first 4 bytes of the file are the constant value <code>1DEADFAD</code>, 
-            This is to identify the file as being an IJVM executable. 
-            You'll find that all sorts of files, like pictures, start with a 
+            The first 4 bytes of the file are the constant value <code>1DEADFAD</code>,
+            This is to identify the file as being an IJVM executable.
+            You'll find that all sorts of files, like pictures, start with a
             constant number of bytes.
             </p>
 
@@ -127,19 +126,19 @@
 
             <strong>Note:</strong>
             <p>
-              If you want to avoid looking a bunch of headaches, check this 
-              value before continuing, or you might end up in a rather complex 
-              debug session for a very easy mistake.
+              If you want to avoid a bunch of headaches, check this
+              value before continuing, or you might end up in a rather weird
+              debug session for trying to execute a jas file.
             </p>
           </div>
         </div>
         <div id="constantpool-explanation" class="off">
           <h1>Constant pool</h1>
           <hr />
-          
+
           <p>
           This is where the IJVM stores all of it's constants, similar
-          to read-only memory. The idea is to store large numbers/very 
+          to read-only memory. The idea is to store large numbers/very
           distinct numbers here constants here.
           </p>
 
@@ -151,17 +150,17 @@
               the constant pool has to be "mapped in", into memory. In this case
               that's the address <code>0x00010000</code>.
             </p>
-            <p>    
-              Binaries need to know where to find the constant they want, 
-              which for most assembly languages is given in an absolute address. 
+            <p>
+              Binaries need to know where to find the constant they want,
+              which for most assembly languages is given in an absolute address.
               E.g. <code>0x00010004</code>, the computer will then directly read
-              from there.  
+              from there.
             </p>
             <strong>Note:</strong>
             <p>
               IJVM instructions that deal with constants actually work with an
-              offset from the start of the constant pool, rather than absolute 
-              addresses. As such you don't really need to take this number into 
+              offset from the start of the constant pool, rather than absolute
+              addresses. As such you don't really need to take this number into
               account.
             </p>
           </div>
@@ -169,8 +168,8 @@
             <h2>Constant pool size</h2>
             <hr/>
             <p>
-              This is simply the number of bytes in this block 
-              <emph>excluding</emph> the origin and size. 
+              This is simply the number of bytes in this block
+              <emph>excluding</emph> the origin and size.
             </p>
             <p>In this case, this is: 0xc or 12 in decimal</p>
           </div>
@@ -178,14 +177,14 @@
             <h2>Constant pool data</h2>
             <hr/>
             <p>
-              The actual constants, 32 bit signed integers (two's complement), 
+              The actual constants, 32 bit signed integers (two's complement),
               since these are 4-bytes a piece, there are 12/4 = 3 constants here, these are:<p>
             </p>
 <!--    --><pre>
 <!--    -->   0xffffffff = -1
 <!--    -->   0x00000002 =  2
 <!--    -->   0x00000003 =  3
-<!--    --></pre> 
+<!--    --></pre>
           </div>
         </div>
         <div id="text-explanation" class="off">
@@ -204,7 +203,7 @@
             </p>
             <strong>Note:</strong>
             <p>
-              For the debugger bonus, you set a breakpoint on the virtual 
+              For the debugger bonus, you set a breakpoint on the virtual
               address, an absolute value, which you'll need to have read here.
             </p>
           </div>
@@ -221,25 +220,25 @@
             <h2>Actual program</h2>
             <hr/>
             <p>
-              This will be the code your program will execute, we've 
-              written out the instructions that these bytes represent with 
+              This will be the code your program will execute, we've
+              written out the instructions that these bytes represent with
               their opcodes below:
             <p>
             <pre>
 <!--     --> .main
-<!--     -->   BIPUSH 0x70  // 10 70          
-<!--     -->   DUP          // 59             
-<!--     -->   BIPUSH 0xff  // 10 ff          
-<!--     -->   IADD         // 60             
-<!--     -->   DUP          // 59             
-<!--     -->   DUP          // 59             
-<!--     -->   BIPUSH 0xff  // 10 ff          
-<!--     -->   ISUB         // 64             
-<!--     -->   OUT          // fd             
-<!--     -->   OUT          // fd             
-<!--     -->   OUT          // fd             
-<!--     -->   OUT          // fd             
-<!--     --> .end-main     
+<!--     -->   BIPUSH 0x70  // 10 70
+<!--     -->   DUP          // 59
+<!--     -->   BIPUSH 0xff  // 10 ff
+<!--     -->   IADD         // 60
+<!--     -->   DUP          // 59
+<!--     -->   DUP          // 59
+<!--     -->   BIPUSH 0xff  // 10 ff
+<!--     -->   ISUB         // 64
+<!--     -->   OUT          // fd
+<!--     -->   OUT          // fd
+<!--     -->   OUT          // fd
+<!--     -->   OUT          // fd
+<!--     --> .end-main
 <!--     --></pre>
           </div>
         </div>

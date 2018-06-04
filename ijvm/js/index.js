@@ -17,17 +17,21 @@ window.onload = function() {
     }
 
     headings.forEach(function(x){
-    var blockId = x.split("-")[0];
-    var headId = x.split("-")[1];
+        var blockId = x.split("-")[0];
+        var headId = x.split("-")[1];
 
-    var elemList = document.getElementsByClassName(x);
-    
-    [].slice.call(elemList).forEach(function(elem){
-        if (!elem)
-        return;
+        var elemList = document.getElementsByClassName(x);
         
-        elem.addEventListener("click", function(){explain(blockId, x);});
-    });
+        [].slice.call(elemList).forEach(function(elem){
+            if (!elem)
+                return;
+            
+            elem.addEventListener("click", function(){
+                explain(blockId, x);
+                var loc = document.location.toString().split('#')[0];
+                document.location = loc + '#' + blockId + '-explanation';
+            });
+        });
     });
 
     document.getElementById("switch-theme").addEventListener("click", function(){
