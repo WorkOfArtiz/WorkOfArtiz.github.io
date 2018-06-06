@@ -61,6 +61,7 @@ hr {
   display:table-cell;
   width:1%;
   float:none;
+  vertical-align: middle;
   font-weight: 300;
 
   padding: 10px 20px;
@@ -82,7 +83,10 @@ hr {
 
 .code {
   font-family: monospace;
+  
   padding: 1em;
+  width: 80%;
+  margin: 0 auto;
   text-align: center;
   display:inline-block;
 }
@@ -95,12 +99,18 @@ hr {
 }
 
 .byte {
-  padding: 8px;
   float: left;
+  font-size: 1.3em;
   font-family: monospace;
-  margin: 3px;
   border-left: 2px black solid;
   background: #ccc;
+
+  text-align: center;
+  padding-top:   3%;
+  padding-bottom: 3%;
+  width: 10%;
+  margin : 1%;
+  
 }
 
 .dark-theme .byte {
@@ -160,8 +170,6 @@ pre {
 #constantpool-explanation .highlight { border-left:5px #D70500 solid; }
 #text-explanation         .highlight { border-left:5px #033D8D solid; }
 
-
-
 @media (orientation:landscape) and (min-width:800px) {
   body {
     background: url('../img/bg.jpg') no-repeat center center fixed;
@@ -179,8 +187,10 @@ pre {
   }
 
   .code {
+    width:70%;
+    margin: 0 auto;
     font-size: 14px;
-  }
+  } 
 
   .explanation-block {
     background: rgba(0, 0, 0,0.3);
@@ -194,16 +204,12 @@ pre {
   .binary-explorer, .explanation-block {
     width: 100vw;
     float: left;
-  }
+  } 
 
-  /* .button-group > * {
-    margin: 1em 0 1em 0;
-    padding: 0.5em 1em;
-  } */
+
 
   pre { overflow: hidden;}
 
+  .code {width:100%; padding:0; margin-bottom:1em;}
   .container { margin: 0; padding: 1em 1.5em 1em 1em;}
-  .code { padding: 0px;}
-  .byte { padding: 4px; margin: 2px;}
 }
