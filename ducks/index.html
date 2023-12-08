@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Duck calc</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS v5.2.1 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+  <style>
+    .h-1em {
+        height: 1em;
+    }
+
+    .currency {
+        /* max-height: 100px; */
+        width: 100%;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="mb-2">
+    <nav class="navbar navbar-expand navbar-dark bg-dark">
+        <div class="container">
+            <div class="nav navbar-nav">
+                <a class="nav-item nav-link active" href="#" aria-current="page"><img class="d-inline h-1em" src="img/rubber-duck.png"/>-calculator</a>
+
+                <ul class="nav nav-pills" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="items-tab" data-bs-toggle="tab" data-bs-target="#items" type="button" role="tab" aria-controls="items" aria-selected="true">Items</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="receipt-tab" data-bs-toggle="tab" data-bs-target="#receipt" type="button" role="tab" aria-controls="receipt" aria-selected="false">Receipt</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="change-calc-tab" data-bs-toggle="tab" data-bs-target="#change-calc" type="button" role="tab" aria-controls="change-calc" aria-selected="false">Change</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+  </header>
+  <main class="container">
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+      <div class="tab-pane active" id="items" role="tabpanel" aria-labelledby="items-tab">
+        <div id="products"></div>
+      </div>
+      <div class="tab-pane" id="receipt" role="tabpanel" aria-labelledby="receipt-tab"> profile </div>
+      <div class="tab-pane" id="change-calc" role="tabpanel" aria-labelledby="change-calc-tab">
+        <div class="mb-3">
+          <label for="" class="form-label">Total to be paid</label>
+          <input type="text" class="form-control" id="total-price" placeholder="e.g. 50.25 or 50">
+        </div>
+        <div class="mb-3">
+            <label for="" class="form-label">Money received</label>
+            <input type="text" class="form-control" id="money-received" placeholder="e.g. 50.25 or 50">
+        </div>
+        <div>
+            <h4>Change to give:</h4>
+            <div id="change">
+            </div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+
+  <script src="js/duckcalc.min.js"></script>
+</body>
+
+</html>
